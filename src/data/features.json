@@ -1,0 +1,23 @@
+[
+  {
+    "header": "Portable",
+    "caseStudy": "portability",
+    "snippet": "Deploy your BaaS anywhere.",
+    "icon": "Sliders",
+    "description": "Pinniped defines portability as how easy it is to move the application to any environment and run as intended. Pinniped achieves this by being easy to deploy and run on any environment where Node is installed. Pinniped makes the migration of development changes pushed to a production environment simple. "
+  },
+  {
+    "header": "Extensible",
+    "caseStudy": "extensibility",
+    "snippet": "Extend your BaaS with Node/Javascript.",
+    "icon": "Code",
+    "description": "Extensibility, in Pinniped’s terms, is how much backend functionality can be built before resorting to a backend that better suits the user’s requirements. Pinniped's functionality is extendable within the backend's source code with JavaScript. As a result, Pinniped supports up-to-date JavaScript ES6 features and Node APIs. Although serverless functions are the industry standard, serverless functions have innate issues of increased network latency and configuration complexities. These issues undermine Pinniped’s goals, which influenced Pinniped to focus on supporting JavaScript natively."
+  },
+  {
+    "header": "Easy to Use",
+    "caseStudy": "ease-of-use",
+    "snippet": "Manage your schema and data with ease.",
+    "icon": "Check",
+    "description": "As straightforward as it sounds, Pinniped’s goal of user-friendliness is based on how simple and easy it is to interact with and integrate Pinniped into the application. Users of Pinniped have access to simplified pipelines that can create a Pinniped-powered application, deploy that application onto a virtual private server (VPS), and manage that application through an admin dashboard. "
+  }
+]
