@@ -177,17 +177,17 @@ const TocItem = styled.li`
   }
 `;
 
-const CircleWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1px;
-  border-radius: 50%;
+// const CircleWrapper = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   padding: 1px;
+//   border-radius: 50%;
 
-  &.active {
-    outline: 2px solid var(--accent2);
-  }
-`;
+//   &.active {
+//     outline: 2px solid var(--accent2);
+//   }
+// `;
 
 const Circle = styled.div`
   width: 6px;
