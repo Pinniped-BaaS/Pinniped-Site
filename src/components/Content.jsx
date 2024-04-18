@@ -10,7 +10,6 @@ import three_tier from "../assets/images/three_tier.png";
 import tableMigrationSequence from "../assets/images/table-migration-sequence.png";
 
 // Animations
-import testAnimation from "../assets/animations/Test_Animation.svg";
 
 // Videos
 import portability from "../assets/videos/portability.mp4";
@@ -78,26 +77,26 @@ const GraphicWrapper = styled.div`
   }
 `;
 
-const SideBySide = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-  gap: 20px;
+// const SideBySide = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: start;
+//   gap: 20px;
 
-  .graphic-wrapper {
-    flex: 2;
-  }
+//   .graphic-wrapper {
+//     flex: 2;
+//   }
 
-  p {
-    flex: 1;
-    text-align: justify;
-  }
+//   p {
+//     flex: 1;
+//     text-align: justify;
+//   }
 
-  @media (max-width: 1000px) {
-    flex-direction: column;
-    align-items: center;
-  }
-`;
+//   @media (max-width: 1000px) {
+//     flex-direction: column;
+//     align-items: center;
+//   }
+// `;
 
 const Image = ({ src, alt }) => {
   return (

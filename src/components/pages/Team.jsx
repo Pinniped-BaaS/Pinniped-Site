@@ -7,22 +7,25 @@ import { Linkedin, Mail } from "react-feather";
 const teamData = [
   {
     name: "Alan",
+    src: "",
   },
   {
     name: "Jonathan",
+    src: "Jonathan-Headshot",
   },
   {
     name: "Josh",
   },
   {
     name: "Trevor",
+    src: "Trevor-Headshot",
   },
 ];
 
 const Member = ({ member }) => {
   return (
     <TeamCard>
-      <Photo src="https://via.placeholder.com/150" />
+      <Photo src={`src/assets/headshots/${member.src}.jpeg`} />
       <Name>{member.name}</Name>
 
       <Bar>
@@ -80,8 +83,10 @@ const TeamCard = styled.div`
 `;
 
 const Photo = styled.img`
-  width: 170px;
-  height: 170px;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  object-position: 0 30%;
   border-radius: 50%;
 `;
 
