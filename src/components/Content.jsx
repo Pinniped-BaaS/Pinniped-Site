@@ -134,6 +134,7 @@ export default function Content() {
         <h2>
           <span id="h.kjk2mlakynta">What is Pinniped?</span>
         </h2>
+        <Video src={extensibility} />
         <p>
           Pinniped is a portable, user-friendly <i>backend as a service</i>{" "}
           tailored for small teams and front-end engineers. It provides
