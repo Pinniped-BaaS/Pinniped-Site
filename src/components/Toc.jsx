@@ -13,7 +13,6 @@ const hasActiveParent = (headings, heading, activeId) => {
   let elIdx = headings.findIndex((el) => el.id === heading.id);
   let tempIdx = elIdx;
   let temp = headings[tempIdx];
-  console.log(elIdx, "active parent check");
   while (temp && temp.level >= heading.level) {
     tempIdx--;
     temp = headings[tempIdx];

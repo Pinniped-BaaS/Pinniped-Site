@@ -10,6 +10,8 @@ const getClassName = (level) => {
       return "head4";
     case 5:
       return "head5";
+    case 6:
+      return "head6";
     default:
       return "head2";
   }
@@ -42,9 +44,12 @@ export default function useGatherHeads() {
   const [headings, setHeadings] = useState([]);
 
   useEffect(() => {
-    const els = Array.from(document.querySelectorAll("h2, h3, h4, h5")).map(
-      (el) => {
-        el.setAttribute("id", el.innerText.replace(/\s+/g, "-").toLowerCase());
+    const els = Array.from(document.querySelectorAll("h2, h3, h4, h5, h6")).map(
+      (el, idx) => {
+        el.setAttribute(
+          "id",
+          `${el.innerText.replace(/\s+/g, "-").toLowerCase()}${idx}`
+        );
         const level = Number(el.nodeName.charAt(1));
         return {
           id: el.id,
