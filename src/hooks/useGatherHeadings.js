@@ -45,11 +45,8 @@ export default function useGatherHeads() {
 
   useEffect(() => {
     const els = Array.from(document.querySelectorAll("h2, h3, h4, h5, h6")).map(
-      (el, idx) => {
-        el.setAttribute(
-          "id",
-          `${el.innerText.replace(/\s+/g, "-").toLowerCase()}${idx}`
-        );
+      (el) => {
+        el.setAttribute("id", el.innerText.replace(/\s+/g, "-").toLowerCase());
         const level = Number(el.nodeName.charAt(1));
         return {
           id: el.id,
