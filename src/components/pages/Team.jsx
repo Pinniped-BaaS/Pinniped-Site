@@ -1,31 +1,40 @@
-import { useState } from "react";
-
 import styled from "styled-components";
 
 import { Linkedin, Mail } from "react-feather";
 
+import Jonathan from "../../assets/headshots/Jonathan-Headshot.jpeg";
+import Trevor from "../../assets/headshots/Trevor-Headshot.jpeg";
+
 const teamData = [
   {
     name: "Alan",
-    src: "",
   },
   {
     name: "Jonathan",
-    src: "Jonathan-Headshot",
   },
   {
     name: "Josh",
   },
   {
     name: "Trevor",
-    src: "Trevor-Headshot",
   },
 ];
+
+const determinePhoto = (name) => {
+  switch (name) {
+    case "Jonathan":
+      return Jonathan;
+    case "Trevor":
+      return Trevor;
+    default:
+      return "";
+  }
+};
 
 const Member = ({ member }) => {
   return (
     <TeamCard>
-      <Photo src={`src/assets/headshots/${member.src}.jpeg`} />
+      <Photo src={determinePhoto(member.name)} />
       <Name>{member.name}</Name>
 
       <Bar>
