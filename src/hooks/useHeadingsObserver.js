@@ -8,7 +8,6 @@ export default function useHeadsObserver(headings) {
     const handleObserver = (entries) => {
       entries.forEach((entry) => {
         if (entry?.isIntersecting) {
-          console.log(`Setting active id to ${entry.target.id}`);
           setActiveId(entry.target.id);
         }
       });
@@ -16,7 +15,7 @@ export default function useHeadsObserver(headings) {
 
     observer.current = new IntersectionObserver(handleObserver, {
       root: null,
-      rootMargin: "0px 0px -75% 0px",
+      rootMargin: "0px 0px -85% 0px",
       threshold: 1,
     });
 

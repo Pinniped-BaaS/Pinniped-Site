@@ -5,6 +5,8 @@ import useHeadingsObserver from "../hooks/useHeadingsObserver.js";
 
 import scrollIntoView from "../utils/scrollIntoView.js";
 
+import { debounce } from "lodash";
+
 const isActive = (heading, activeId) => {
   return heading.id === activeId;
 };
@@ -152,21 +154,22 @@ const TocItem = styled.li`
   }
 
   &.head2 {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     border-bottom: 1px solid var(--faint-gray);
   }
 
   &.head3 {
-    // padding-left: 10px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
   &.head4 {
-    // padding-left: 20px;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
   &.head5 {
-    // padding-left: 30px;
+    font-size: 0.7rem;
+  }
+
+  &.head6 {
     font-size: 0.6rem;
   }
   &.active {

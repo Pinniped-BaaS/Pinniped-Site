@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 import scrollIntoView from "../utils/scrollIntoView.js";
 
-export default function useCheckImagesLoaded(imagesLoaded) {
+export default function useScrollToHeader(imagesLoaded) {
   useEffect(() => {
     if (imagesLoaded) {
       requestAnimationFrame(() => {

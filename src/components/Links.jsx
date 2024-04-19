@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { GitHub } from "react-feather";
 
 const links = [
-  { to: "/case-study/#what-is-pinniped?", text: "Case Study" },
+  { to: "/case-study/#introduction", text: "Case Study" },
   { to: "/team", text: "Team" },
 ];
 
@@ -67,7 +67,7 @@ const LinkWrapper = styled.div`
     background-color: var(--accent2);
     transition: width 0.5s ease;
   }
-  
+
   &:hover::after {
     width: 100%;
   }

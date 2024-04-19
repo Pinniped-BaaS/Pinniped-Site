@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 import { Linkedin, Mail } from "react-feather";
 
+import Alan from "../../assets/headshots/Alan-Headshot.jpeg";
 import Jonathan from "../../assets/headshots/Jonathan-Headshot.jpeg";
+import Josh from "../../assets/headshots/Josh-Headshot.jpeg";
 import Trevor from "../../assets/headshots/Trevor-Headshot.jpeg";
 
 const teamData = [
@@ -22,8 +24,12 @@ const teamData = [
 
 const determinePhoto = (name) => {
   switch (name) {
+    case "Alan":
+      return Alan;
     case "Jonathan":
       return Jonathan;
+    case "Josh":
+      return Josh;
     case "Trevor":
       return Trevor;
     default:
@@ -75,6 +81,10 @@ const TeamCards = styled.div`
     flex-direction: column;
     gap: 30px;
   }
+
+  & div:nth-child(even) img {
+    object-position: 0 35%;
+  }
 `;
 
 const TeamCard = styled.div`
@@ -94,7 +104,6 @@ const Photo = styled.img`
   width: 200px;
   height: 200px;
   object-fit: cover;
-  object-position: 0 30%;
   border-radius: 50%;
 `;
 

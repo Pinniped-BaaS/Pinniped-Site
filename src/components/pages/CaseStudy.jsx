@@ -4,13 +4,17 @@ import Toc from "../Toc";
 import Content from "../Content";
 
 import useGatherHeadings from "../../hooks/useGatherHeadings.js";
+import useCheckImagesLoaded from "../../hooks/useCheckImagesLoaded";
+import useScrollToHeader from "../../hooks/useScrollToHeader";
 
 export default function CaseStudy() {
   const { headings } = useGatherHeadings();
+  const { imagesLoaded } = useCheckImagesLoaded();
+  useScrollToHeader(imagesLoaded);
 
   return (
     <CaseStudyWrapper>
-      {headings.length && <Toc headings={headings} />}
+      {!!headings.length && <Toc headings={headings} />}
       <Content />
     </CaseStudyWrapper>
   );
@@ -27,3 +31,6 @@ const CaseStudyWrapper = styled.section`
     grid-template-areas: "contents";
   }
 `;
+
+19;
+11;

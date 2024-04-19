@@ -2,14 +2,16 @@ import { useState, useEffect } from "react";
 
 export default function useCheckImagesLoaded() {
   const [imagesLoaded, setImagesLoaded] = useState(false);
+
   useEffect(() => {
-    const imgSection = document.querySelector("#contents-wrapper  ");
-    const images = imgSection.querySelectorAll("img");
-    let loadedImages = 0;
+    const imgSection = document.querySelector("#contents-wrapper");
+    const images = imgSection.querySelectorAll("img, object");
+
+    let count = 0;
 
     const handler = () => {
-      loadedImages++;
-      if (loadedImages === images.length) {
+      count++;
+      if (count === images.length) {
         setImagesLoaded(true);
       }
     };

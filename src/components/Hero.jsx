@@ -8,19 +8,14 @@ export default function Hero() {
   return (
     <HeroWrapper>
       <HeroContent>
-        An open-source, portable, extensible, and easy to deploy BaaS, built
-        with Node, SQLite, with an Admin Dashboard.
+        A portable, open-source BaaS for fast moving Node.js engineers.
       </HeroContent>
       <Actions>
-        <Button
-          onClick={() => {
-            window.location.href = "https://github.com/Pinniped-BaaS";
-          }}
-        >
-          Try Pinniped
+        <Button as={Link} to="/case-study/#introduction">
+          Read Case Study
         </Button>
         <LinkWrapper>
-          <Link to="/case-study/#what-is-pinniped?">Case Study</Link>
+          <a href="https://github.com/Pinniped-BaaS">Try Pinniped</a>
         </LinkWrapper>
       </Actions>
       <PinnipedDemo />
@@ -35,6 +30,8 @@ const HeroWrapper = styled.section`
   justify-content: center;
   align-items: start;
   gap: 30px;
+
+  // min-height: 780px;
 
   position: relative;
   margin-bottom: 50px;
@@ -83,6 +80,10 @@ const Actions = styled.div`
   animation: bring-in 1s ease;
   animation-delay: 0.7s;
   animation-fill-mode: both;
+
+  & a {
+    text-decoration: none;
+  }
 `;
 
 const Button = styled.button`
@@ -94,15 +95,21 @@ const Button = styled.button`
   width: 200px;
 
   padding: 0.5rem 0.75rem;
+  margin: 0 auto;
+
+  text-align: center;
 
   cursor: pointer;
   transition: background 0.4s;
-  margin: 0 auto;
 
   &:hover {
     background: var(--foreground);
     color: white;
     border-radius: 0.25rem;
+  }
+
+  & a {
+    text-decoration: none;
   }
 `;
 

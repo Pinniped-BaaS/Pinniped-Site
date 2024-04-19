@@ -1,8 +1,45 @@
 import styled from "styled-components";
 
-import useCheckImagesLoaded from "../hooks/useCheckImagesLoaded";
-import useScrollToHeader from "../hooks/useScrollToHeader";
-import graphics from "../assets/case-study/index.js";
+
+
+import RestHttpDiagram from "../assets/case-study/1. rest-http-diagram.svg";
+import staticRoutesCodeSnippet from "../assets/case-study/2. static-routes-code-snippet.png";
+import middlewareAnimation from "../assets/case-study/3. middleware-animation.svg";
+import threeTierArchitectureAnimation from "../assets/case-study/4. three-tier-architecture-animation.svg";
+import CaNoTool from "../assets/case-study/5. C-A-NoTool.svg";
+import CaIaaS from "../assets/case-study/6. C-A-IaaS.svg";
+import CaPaaS from "../assets/case-study/7. C-A-PaaS.svg";
+import CaBaaS from "../assets/case-study/8. C-A-BaaS.svg";
+import BaasCompNoPnpd from "../assets/case-study/9. BaaS-Comp-No-Pnpd.png";
+import portability from "../assets/case-study/10. portability.mp4";
+import extensibility from "../assets/case-study/11. extensibility-new.mp4";
+import userExperience from "../assets/case-study/12. user-experience.mp4";
+import baasCompWithPnpd from "../assets/case-study/13. BaaS-Comp-With-Pnpd.png";
+import CreateTableRequestSequence from "../assets/case-study/14. Create-Table-Request-Sequence.svg";
+import schemaVid from "../assets/case-study/15. schema-vid.mp4";
+import sql from "../assets/case-study/16. sql.svg";
+import tableMigrationSequence from "../assets/case-study/17. table-migration-sequence.svg";
+import migrationFile from "../assets/case-study/18. migration-file.png";
+import dataVid from "../assets/case-study/19. data-vid.mp4";
+import dynamicRoutes from "../assets/case-study/20. dynamic-routes.png";
+import sdkUsage from "../assets/case-study/21. sdk-usage.png";
+import createTableRequestSequence from "../assets/case-study/22. Create-Table-Request-Sequence.svg";
+import loadTableContextSequence from "../assets/case-study/23. loadTableContext-sequence.svg";
+import validationSequence from "../assets/case-study/24. validation-sequence.svg";
+import apiRules from "../assets/case-study/25. api-rules.mp4";
+import expressSessionSequence from "../assets/case-study/26. express-session-sequence.svg";
+import loginSessionSequence from "../assets/case-study/27. login-session-sequence.svg";
+import apiRulesRequest from "../assets/case-study/28. api-rules-request.png";
+import authCheckSequence from "../assets/case-study/29. auth-check-sequence.svg";
+import rowAuth from "../assets/case-study/30. row-auth.png";
+import customRoute from "../assets/case-study/31. custom-route.png";
+import eventExtensibility from "../assets/case-study/32. event-extensibility.png";
+import extensibilitySetupSequence from "../assets/case-study/33. extensibility-setup-sequence.svg";
+import extensibilityReqResSequence from "../assets/case-study/34. extensibility-req-res-sequence.svg";
+import pinnipedArchitectureAnimation from "../assets/case-study/35. Pinniped-Architecture-Animation.svg";
+import startupLog from "../assets/case-study/36. Startup-Log.png";
+import ssl from "../assets/case-study/37. ssl.mp4";
+import updatePinniped from "../assets/case-study/38. update-pinniped.mp4";
 
 // const SideBySide = styled.div`
 //   display: flex;
@@ -47,19 +84,23 @@ const ContentsWrapper = styled.section`
   }
 
   h3 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 
   h3 {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 
   h4 {
-    font-size: 0.9rem;
+    font-size: 1.3rem;
   }
 
   h5 {
-    font-size: 0.8rem;
+    font-size: 1.1rem;
+  }
+
+  h6 {
+    font-size: 1rem;
   }
 
   & p {
@@ -80,6 +121,7 @@ const GraphicWrapper = styled.div`
   & img,
   video,
   object {
+    min-width: 75%;
     max-width: 95%;
     height: auto;
     border-radius: var(--graphic-radius);
@@ -124,78 +166,72 @@ const Graphic = ({ file, alt, extension }) => {
 };
 
 export default function Content() {
-  const { imagesLoaded } = useCheckImagesLoaded();
-  useScrollToHeader(imagesLoaded);
+  
 
   return (
     <ContentsWrapper id="contents-wrapper">
       <>
-        <h3>
-          <span id="h.kjk2mlakynta">What is Pinniped?</span>
-        </h3>
+        <h2>
+          <span id="h.kjk2mlakynta">Introduction</span>
+        </h2>
         <p>
-          Pinniped is a portable, user-friendly<i>backend as a service</i>{" "}
-          tailored for small teams and front-end engineers. It provides
-          essential backend capabilities, including database management, API
-          server functionality, and user authorization while prioritizing
-          Javascript extensibility.
+          Pinniped is a portable, open-source{" "}
+          <b>
+            <i>Backend as a Service</i>
+          </b>{" "}
+          designed for small, fast-moving teams and front-end engineers.
+          Pinniped streamlines backend development by providing an intuitive CLI
+          tool and admin dashboard for creating, customizing, and deploying
+          flexible backend applications.
         </p>
+        <h2>
+          <span id="h.vulifb8ocgrk">Problem Domain</span>
+        </h2>
         <p>
-          Pinniped is a portable, open-source Backend as a Service designed for
-          small, fast-moving teams and front-end engineers. Pinniped streamlines
-          backend development by providing an intuitive CLI tool and admin
-          dashboard for creating, customizing, and deploying flexible backend
-          applications.
-        </p>
-        <h3>
-          <span id="h.vulifb8ocgrk">Backend as a Service : Background</span>
-          <span id="h.vulifb8ocgrk">Backend-As-A-Service</span>
-        </h3>
-        <p>
-          Before discussing the definition and benefits of a
-          backend-as-a-service (BaaS), we’ll examinegetting into the definition
-          and benefits of a backend-as-a-service (BaaS), we’ll look at the
-          typical structure of web applications, the challenges associated with
-          building them, and some tools that address those challenges.
+          Before discussing the definition and benefits of a backend as a
+          service (BaaS), we’ll examine the typical structure of web
+          applications, the challenges associated with building them, and some
+          tools that address those challenges.
         </p>
         <h3>
-          <span id="h.2jbcyj2czoho">Three</span>
-          <span id="h.2jbcyj2czoho">3</span>
-          <span id="h.2jbcyj2czoho">-Tier Architecture</span>
+          <span id="h.2jbcyj2czoho">Three-Tier Architecture</span>
         </h3>
         <p>
           Web applications are commonly built by separating their functionality
           into three tiers. This separation isolates different responsibilities
           of the application and is often reflected in the physical
           configuration of the hardware as well. Isolating the responsibilities
-          of each tier makes each easier to develop, maintain, and scale develop
-          and maintain. The three tiers are:
+          of each tier makes each easier to develop, maintain, and scale. The
+          three tiers are:
         </p>
         <h4>
           <span id="h.p60wvo2lgzpp">The Data Tier</span>
         </h4>
         <p>
-          The Data Tier is responsible for data storage, retrieval, and
-          management within a web application. It typically encompasses a
-          database and caches. The database conventionally lives on its own
-          hardware, isolated from the other tiers.
+          The Data Tier is responsible for <b>data storage</b> ,{" "}
+          <b>retrieval, and management</b> within a web application. It
+          typically encompasses a database and caches. The database
+          conventionally lives on its own hardware, isolated from the other
+          tiers.
         </p>
         <h4>
           <span id="h.yp62vtvaazpu">The Application Tier</span>
         </h4>
         <p>
-          The Application Tier, or Business Logic Tier, processes user requests,
-          executes business logic, and manages data exchange between the
-          presentation and data tiers. It handles the application's core
-          functionality, including most data validation, authorizationsession
-          management, and integration with other services. The application tier
-          is often stateless, allowing it to can handle varying request volumes
-          by horizontally scaling the application tier across multiple physical
-          or virtual machines.
+          The Application Tier, or Business Logic Tier,{" "}
+          <b>
+            processes user requests, executes business logic, and manages data
+            exchange between the presentation and data tiers.
+          </b>{" "}
+          It handles the application's core functionality, including data
+          validation, authorization, and integration with other services. The
+          application tier is often stateless, allowing it to handle varying
+          request volumes by horizontally scaling across multiple physical or
+          virtual machines.
         </p>
-        <h6>
+        <h5>
           <span id="h.lsx16pvcj3zy">REST API</span>
-        </h6>
+        </h5>
         <p>
           The interface (API) that allows clients to interact with the
           application tier is crucial. These interfaces are commonly built using
@@ -203,15 +239,11 @@ export default function Content() {
           we’ll focus on here. REST APIs represent entities, like database
           tables, as "resources" with unique URLs. Each resource instance (e.g.,
           a row in the table) is accessible by appending its identifier to the
-          resource URL. HTTP request methods indicatetell the endpoint whatthe
-          operation to perform on the resource specified by the URL.
+          resource URL.
         </p>
-        <p>
-          <Graphic {...graphics.restHttpDiagram} />
-        </p>
-        <h5>
+        <h6>
           <span id="h.prhaesqp2ij0">Implementing a REST API</span>
-        </h5>
+        </h6>
         <p>
           A web server receives, processes, and responds to HTTP requests, often
           implementing a REST API to structure these communications. We'll use
@@ -223,38 +255,44 @@ export default function Content() {
           <span id="h.rjgrn4oid50t">Route Handler Functions</span>
         </h6>
         <p>
-          Building a REST API using Express generally involves creating and
-          registering unique route handler functions. These functions define how
-          the server responds to specific HTTP requests targeting particular
-          URLs (endpoints) within the API. Route handlers in Express always
-          typically takereceive two key arguments:
+          Building a REST API using Express involves creating and registering
+          unique route handler functions. These functions define how the server
+          responds to specific HTTP requests targeting particular URLs
+          (endpoints) within the API. Route handlers in Express always receive
+          two key arguments:
         </p>
         <ul>
           <li>
-            <b>Request</b> —An object that represents Tthe incoming HTTP
-            request. object.
+            <b>Request</b> —An object that represents the incoming HTTP request.
           </li>
           <li>
-            <b>Response</b> —AnThe object used to send a response that’s sent
-            back to the client.
+            <b>Response</b> —An object used to send a response back to the
+            client.
           </li>
         </ul>
         <p>
           Within the route handler, you use the request object to access
-          information about the request and the response objects to define the
+          information about the request and the response object to define the
           content and structure of the response. This allows you to implement
           the logic for CRUD operations (Create, Read, Update, Delete) on your
-          resources based on the HTTP method (POST, GETREAD, PUTUPDATE, DELETE)
-          used in the request.
+          resources based on the HTTP method (POST, GET, PUT, DELETE) used in
+          the request.
         </p>
+        <Graphic
+          file={RestHttpDiagram}
+          extension="svg"
+          alt="Rest HTTP Diagram"
+        />
         <p>
           Here’s a simple example showing the registration of route handler
           functions at specific URL endpoints. Note how each route requires its
-          own function to handle the uniquespecific logic of the route.
+          own function to handle the unique logic of the route.
         </p>
-
-        <Graphic {...graphics.staticRoutesCodeSnippet} />
-
+        <Graphic
+          file={staticRoutesCodeSnippet}
+          extension="png"
+          alt="Rest HTTP Diagram"
+        />
         <h6>
           <span id="h.15bxho82qg7m">Middleware</span>
         </h6>
@@ -264,55 +302,57 @@ export default function Content() {
           shared tasks such as parsing data, logging requests, and user
           authentication. They can be applied globally or to specific routes.
         </p>
-
-        <Graphic {...graphics.middlewareAnimation} />
-
+        <Graphic
+          file={middlewareAnimation}
+          extension="svg"
+          alt="Rest HTTP Diagram"
+        />
         <h4>
           <span id="h.h03wvg9n2q4q">The Presentation Tier</span>
         </h4>
         <p>
-          Returning to the final tier of the three-tier architecture,{" "}
-          <b>the Presentation Tier is the user-facing layer</b> comprising the
-          web application's user interface and user experience components. It
-          displays information to the users and captures their inputs,
-          facilitating interactions between the user and the core application
-          tier. The presentation tier usually runs on users’ devices.
+          Returning to the final tier of the three-tier architecture, the
+          Presentation Tier{" "}
+          <b>
+            is the user-facing layer comprising the web application's user
+            interface
+          </b>{" "}
+          and user experience components. It displays information to the users
+          and captures their inputs, facilitating interactions between the user
+          and the application tier. The presentation tier usually runs on users’
+          devices.
         </p>
-        <Graphic {...graphics.threeTierArchitectureAnimation} />
+        <Graphic
+          file={threeTierArchitectureAnimation}
+          extension="svg"
+          alt="Rest HTTP Diagram"
+        />
         <h4>
-          <span id="h.qaufus87ww">Challenges of </span>
-          <span id="h.qaufus87ww">Three-Tier Architecture</span>
-          <span id="h.qaufus87ww"> Challenges</span>
-          <span id="h.qaufus87ww">s</span>
+          <span id="h.qaufus87ww">Three-Tier Architecture Challenges</span>
         </h4>
         <p>
-          While building a three-tiered application separates the main concerns
-          of a web application, making it easier to reason about and manage, it
-          also involves many challenges. We’ll discuss some of them below.
-        </p>
-        <p>
-          While three-tier architecture offers clear separation of concerns, and
-          many associated benefits, it also introduces challenges. We’ll explore
-          some of these challenges below.
+          While three-tier architecture offers a clear separation of concerns
+          and many associated benefits, it also introduces challenges. We’ll
+          explore some of these challenges below.
         </p>
         <h5>
           <span id="h.81murxoaqfpi">Data Tier</span>
         </h5>
         <p>
           <b>Developers must decide how and where data is stored.</b> How should
-          the data be modeled? Does it best fit a relational model, document
-          model, or graph? Will the database run on its own machine or be
-          embedded with the rest of the application? After choosing a suitable
-          database, developers must create data structures that fit the data.
-          They also have to configure and maintain their database as their
-          requirements and user base change over timeand user base grows.
+          the data be modeled? Does it best fit a relational, document, or graph
+          model? Will the database run on its own machine or be embedded with
+          the rest of the application? After choosing a suitable database,
+          developers must create data structures that fit the data. They also
+          have to configure and maintain their database as their requirements
+          and user base change over time.
         </p>
         <p>
           Strategies for handling increased traffic in the data tier include
           upgrading the database's hardware or implementing various techniques
           to lighten the load on the database, such as setting up caches,
           queues, and SQL indexes. Depending on the situation, more significant
-          and costly changes to the architecture, like such as replicating or
+          and costly changes to the architecture, like replicating or
           partitioning the database, could be necessary.
         </p>
         <h5>
@@ -320,26 +360,17 @@ export default function Content() {
         </h5>
         <p>
           Developing a robust application tier presents several hurdles. One
-          major challenge is <b>efficiently creating and maintaining a</b>{" "}
-          <b>n</b> <b>REST</b> <b>API layer</b> , especially for applications
-          with numerous resources. Exposing each resource through a
-          well-designed API can be a repetitive task. Beyond API development,
-          other challenges include implementing strong security measures forlike
-          authentication and authorization, validating data, and effectively
-          integrating business-specific logic.
+          major challenge is{" "}
+          <b>efficiently creating and maintaining an API layer</b> , especially
+          for applications with numerous resources. Exposing each resource
+          through a well-designed API can be a repetitive task. Beyond API
+          development, other challenges include implementing strong security
+          measures for authentication and authorization, validating data, and
+          effectively integrating business-specific logic.
         </p>
         <h5>
           <span id="h.ny5a416kbkcz">Hosting</span>
         </h5>
-        <p>
-          Hosting can be a complicated part of running a web application. There
-          are technical details of where to host the application, whether
-          locally or in the cloud, and security concerns surrounding the
-          configuration of the hosting environment and the application, such as
-          obtaining and renewing a TLS certificate to secure network traffic. If
-          the hardware is located on-site and the demand grows, scaling the
-          physical infrastructure in response can take time and effort.
-        </p>
         <p>
           Hosting can be a complicated part of running a web application. The
           decision on where to host the application, whether locally or in the
@@ -360,109 +391,64 @@ export default function Content() {
           abstraction. If a developer wants the most control, they would address
           each of these challenges themselves.
         </p>
-        <p>
-          <img
-            src="https://lh7-us.googleusercontent.com/pmjtlR0EHtcMZ-xKtBNv5CT7nnlMCeCYoo8Vg_d49J90JvDRCyqYr_B66PBQQ0fnthapCSBQIvSDtmd7DlB14xObQ7X3xul5y4TUeheOlMKrpyO0oIL-4nsmC8w08M4tcFzYmaAg4TjNhoZMAZlhhf_Mz9s7YiNL"
-            alt=""
-          />
-        </p>
-        <p>
-          <b>Infrastructure as a Service - IaaS</b>
-        </p>
+        <Graphic file={CaNoTool} extension="svg" alt="No tool" />
+        <h5>
+          <span id="h.49xtimwg6pzp">Infrastructure as a Service - IaaS</span>
+        </h5>
         <p>
           IaaS products remove the need to purchase, physically house, power,
           and maintain hardware by offering hardware usage over the internet in
-          a pay-as-you-go modelstyle. One common IaaS product is a Virtual
-          Private Server (VPS), which is a server and operating system for
-          developers to use to host their applications..
+          a pay-as-you-go model. One common IaaS product is a Virtual Private
+          Server (VPS), which is a server and operating system for developers to
+          remotely host their applications.
         </p>
         <p>
           While IaaS tools handle hardware concerns, developers are responsible
-          for everything else: managing runtime environments, ensuring
-          installing application dependencies are installed, and configuring
-          reverse proxies, firewalls, and load balancers.
+          for everything else: managing runtime environments, installing
+          application dependencies, and configuring reverse proxies, firewalls,
+          and load balancers.
         </p>
-        <p>
-          <img
-            src="https://lh7-us.googleusercontent.com/qmvZ0pm3kp178gTaVIcofTjfpnadudGQT9MYUO46RknrcLac039zl5xo_tQZMCz_wx6FdukDJu82nVq9Cagq2aSAKuyua9ZTxyTcE6MdH65PTLNDT3yGv5jCBkWQMsqyODJF0ZX-fZLSjapevX912DXnhJnEL5oK"
-            alt=""
-          />
-        </p>
-        <p>
-          <b>Platform as a Service - PaaS</b>
-        </p>
+        <Graphic file={CaIaaS} extension="svg" />
+        <h5>
+          <span id="h.7e489zbi3aib">Platform as a Service - PaaS</span>
+        </h5>
         <p>
           PaaS products build on what IaaS products offer. In addition to
           providing physical infrastructure, they offer solutions for challenges
           associated with deployment, server configuration, security
-          configuration, and maintainability.,These solutions allowallowing
-          developers to focus almost exclusively on application development.
+          configuration, and maintainability. These solutions allow developers
+          to focus almost exclusively on application development.
         </p>
         <p>
           While PaaS products can solve many of the challenges of configuring
-          and running a web application, theyitcomecomes with the significant
-          drawback of vendor lock-in.:Mmoving an application away from a PaaS
-          product can be challenging.
+          and running a web application, they come with the significant drawback
+          of vendor lock-in. Moving an application away from a PaaS product can
+          be challenging.
         </p>
+        <Graphic file={CaPaaS} extension="svg" />
+        <h5>
+          <span id="h.s3kx2ba84bop">Backend as a Service - BaaS</span>
+        </h5>
         <p>
-          <img
-            src="https://lh7-us.googleusercontent.com/Xggry0b6pEb5k-iCGAl-TE69u1BwlgJHY58qIqhZDGEVcH6WSA4woOysQMLrLsPAGY74DvBgtuzKBXIcBTL96kkkRihcIm00eB2N8jIAz1oVFVvUVTFldH4hYLWRZyspQK3rSL9256zw9_jfms50uDami-tK6uvO"
-            alt=""
-          />
-        </p>
-        <p>
-          <b>Backend as a Service - BaaS</b>
-        </p>
-        <p>
-          A <b>BaaS</b> <b>solution</b>{" "}
-          <b>abstracts away the process of creating an application’s backend</b>{" "}
-          and provides an interface for the rest of the application to
-          communicate with it. BaaS products create and configure the
-          application and data tiers and often automatically scale the hosting
-          infrastructure to handle traffic. They typically abstract
-          communication with the database by auto-generating auto generate
-          anREST API, allowing the user to modify the database structure and
-          content. This removes the repetitive and tedious task of manually
-          building an API to interact with data.
-        </p>
-        <p>
-          BaaS solutions often offer a suite of additional features as well,, in
-          addition to automating parts of a backend that most applications
-          share, such as file storage, observability, and real-time data
-          subscriptions., often offers a managed cloud hosting service. This
-          service streamlines the application development process by hosting the
-          project with less required setup.
-        </p>
-        <p>
-          BaaS solutions abstract away much of the process of creating an
-          application’s backend by configuring the application and data tiers,
-          and auto generating an API to facilitate communication with the
-          presentation tier.
-        </p>
-        <p>
-          They also commonly offer managed cloud hosting services that
-          streamline the hosting process and can automatically scale backend
-          infrastructure to handle varying traffic levels.
-        </p>
-        <p>
-          BaaS solutions generally provide a suite of additional features as
-          well, such as file storage, observability, and real-time data
-          subscriptions.
+          <b>
+            BaaS solutions abstract away much of the process of creating an
+            application’s backend
+          </b>{" "}
+          by configuring the application and data tiers and auto-generating an
+          API to facilitate communication with the presentation tier. They
+          commonly offer managed cloud hosting services that streamline the
+          hosting process and can automatically scale backend infrastructure to
+          handle varying traffic levels. BaaS solutions generally provide a
+          suite of additional features as well, such as file storage,
+          observability, and real-time data subscriptions.
         </p>
         <p>
           Most BaaS products build on the features offered by PaaS by
-          abstracting server configuration and adding theaapplication and data
-          tiersbackend to the mix. In contrast, others only focus on abstracting
-          the backend and leave the developers to choose hosting options. All of
-          tThese features enable developers to focus on their application's
+          abstracting server configuration and the application and data tiers.
+          These features enable developers to focus on their application's
           business logic and functionality.
         </p>
-        <p>
-          <img
-            src="https://lh7-us.googleusercontent.com/6KDFkQmBsBX_KG7MK0TsrpWEYdaQJljBVZZdhyUZgXGyWNU1VvCoSHNr8O9kJiRnIJ9RI2we3S21jpYQ43wtYcE8OOapQaIq9yObN6dizumDR4OdTE3-2T-Uqs4KKnrF7V8ORSIYmPV3nF2d4V_VxK7hCjcoPchF"
-            alt=""
-          />
-        </p>
+        <Graphic file={CaBaaS} extension="svg" />
         <p>
           The more an application follows norms, such as utilizing a REST API to
           interact with entities stored in a database, the more likely a BaaS
@@ -470,7 +456,9 @@ export default function Content() {
           <b>increase developers' ease of use</b> . However, if an application’s
           needs are unique, a BaaS product’s abstractions can be limiting.
         </p>
-        <p>Some common limitations are:</p>
+        <h6>
+          <span id="h.bdcmcxpj2i9k">Common BaaS Limitations</span>
+        </h6>
         <ul>
           <li>
             <b>Lack of portability</b> —Most BaaS products are easy to deploy
@@ -480,40 +468,30 @@ export default function Content() {
           <li>
             <b>Lack of transparency</b> —Many BaaS products are closed-source,
             which raises concerns about long-term access, ongoing maintenance,
-            and data privacy. Open-source alternatives can mitigate these risks.
+            and data privacy.
           </li>
           <li>
             <b>Lack of flexibility</b> —If a developer requires functionality a
             BaaS product doesn’t offer, they’re limited to whatever tools the
             BaaS provides to solve the problem. This could lead to application
-            limitations orlimitationslimitationscompromises in the application’s
-            features oreven make using the BaaS non-viable.
+            limitations or even make using the BaaS non-viable.
           </li>
         </ul>
-        <h5>
-          <span id="h.oy1wt4jvoxm2">How BaaS</span>
-          <span id="h.oy1wt4jvoxm2"> Solutions Address These Problems</span>
-          <span id="h.oy1wt4jvoxm2">Solutions</span>
-          <span id="h.oy1wt4jvoxm2">a</span>
-          <span id="h.oy1wt4jvoxm2">A</span>
-          <span id="h.oy1wt4jvoxm2">ddress </span>
-          <span id="h.oy1wt4jvoxm2">T</span>
-          <span id="h.oy1wt4jvoxm2">t</span>
-          <span id="h.oy1wt4jvoxm2">hese </span>
-          <span id="h.oy1wt4jvoxm2">P</span>
-          <span id="h.oy1wt4jvoxm2">p</span>
-          <span id="h.oy1wt4jvoxm2">roblems</span>
-        </h5>
+        <h6>
+          <span id="h.oy1wt4jvoxm2">
+            How BaaS Solutions Address These Limitations
+          </span>
+        </h6>
         <ul>
           <li>
-            <b>Portability</b> —Most BaaS products don’t directly significantly
-            address the issue of portability. Part of the tradeoff made by
-            prioritizing ease of use is a lack of support for a broader
-            selection of hosting options.
+            <b>Portability</b> —Most BaaS products don’t directly address the
+            issue of portability. Part of the tradeoff made by prioritizing ease
+            of use is a lack of support for a broader selection of hosting
+            options.
           </li>
           <li>
             <b>Transparency</b> —Some BaaS products are open-source, allowing
-            users to vet the codebase. However, due to the sizes\ of most BaaS
+            users to vet the codebase. However, due to the size of most BaaS
             codebases, support and maintenance issues are still present.
           </li>
           <li>
@@ -548,20 +526,12 @@ export default function Content() {
             compatible at all.
           </li>
           <li>
-            <b>Latency</b> —Due to cold start delays: wWhen a serverless
-            function hasn’t been invoked recently, there’s a delay before
-            execution begins, known as a cold start delay. Another source of
-            latency is because Since serverless functions doare not run on the
-            same hardware as the backend andthey require a network hop for any
-            interaction with the backend.
-          </li>
-          <li>
-            Latency—Serverless functions can suffer from cold start delays, a
-            noticeable delay in execution due to the BaaS allocating resources
-            for the function. These delays only occur after a period of
-            inactivity. Also, since serverless functions do not run on the same
-            hardware as the database, they require a network hop to retrieve any
-            additional data from the main backend.
+            <b>Latency</b> —Serverless functions can suffer from cold start
+            delays, a noticeable delay in execution due to the BaaS allocating
+            resources for the function. These delays only occur after a period
+            of inactivity. Also, since serverless functions do not run on the
+            same hardware as the database, they require a network hop to
+            retrieve any additional data from the main backend.
           </li>
         </ul>
         <h3>
@@ -572,33 +542,26 @@ export default function Content() {
           some of today’s more popular BaaS solutions and the features they
           offer.
         </p>
-        <p>
-          <img
-            src="https://lh7-us.googleusercontent.com/Bv8S98m_brscHOA4tulyc1RFP4D4XFV_a6X-EkH2XMgIZBDVrkSrZNH-Q-iTna4cgaplpIOPrLDAeztZoYPO2CJtIk-KlEa76HgbSsCP0HtFRblSV-mqgcXk61AoIFj7R_q8ps6vhnrh35Uxq0v4n8UUlq_4ma2D"
-            alt=""
-          />
-        </p>
+        <Graphic file={BaasCompNoPnpd} extension="png" />
         <ul>
           <li>
             <p>
               <b>Firebase</b> is a powerful BaaS platform from Google that
-              offers a wealth of development tools. As a closed source product
-              Unlike some BaaS options, Firebase doesn't allow you to self host
-              to choose youryour application.hosting provider. This can be a
-              drawback if data ownership and transparency are flexibility is a
-              major prioritiespriority for your project. However, if Firebase's
-              features align well with your needs, the convenience of its
-              built-in tools might outweigh this limitation.
+              offers a wealth of development tools. As a closed-source product,
+              Firebase doesn't allow you to self-host your application. This can
+              be a drawback if data ownership and transparency are major
+              priorities for your project. However, if Firebase's features align
+              well with your needs, the convenience of its built-in tools might
+              outweigh this limitation.
             </p>
           </li>
           <li>
             <p>
               <b>Supabase</b> is a popular open-source option that offers more
-              control. Developers can use thier managed hosting services or self
-              host choosewith their preferred hosting provider. The self
-              hostingsecond options, but the setup process can be quitemore
-              complex. Like Firebase, Supabase uses serverless functions to
-              extend the BaaS.
+              control. Developers can use Supabase’s managed hosting services or
+              self-host with their preferred hosting provider, however, the
+              self-hosting setup process can be quite complex. Like Firebase,
+              Supabase uses serverless functions to extend the BaaS.
             </p>
           </li>
           <li>
@@ -623,15 +586,12 @@ export default function Content() {
         <p>
           Among the BaaS options, we saw an opportunity to build a BaaS that was{" "}
           <b>easy to self-host</b> and <b>customize with JavaScript</b> , a
-          language familiar to most front-end engineers. A BaaS that could
-          streamline application development by providing database management,
-          and API server functionality, while prioritizing ease of usefor{" "}
-          <b>small teams</b> that value flexibility and don’t need all the
-          features offered by larger BaaS. Unlike traditional BaaSsolutions
-          thatsolutions, that abstract aways complexity for ease of use, we
-          prioritized ease of use by focusing on the problems that developers
-          creating small projects with BaaS have. This is reflected in the
-          design choices we made for Pinniped:
+          language familiar to most front-end engineers. One that could
+          streamline application development by providing database management
+          and API server functionality, while prioritizing ease of use. A
+          solution intendedfor <b>small teams</b> that value flexibility and
+          don’t need all the features offered by a larger BaaS. This is
+          reflected in the design choices we made for Pinniped:
         </p>
         <h5>
           <span id="h.1usi6uxe79bs">Portability</span>
@@ -644,60 +604,37 @@ export default function Content() {
           drawbacks when it comes to scalability, as Pinniped cannot scale the
           server and database separately. We’ll continue exploring this
           decision's ramifications throughout the case study. The upsides of
-          using a single process are reduced latencyincreased performance and
-          minimal configuration for the communication between the server and
-          database. This allows developers to quickly run a Pinniped application
-          in a local development environment or any production environment with
+          using a single process are reduced latency and minimal configuration.
+          This allows developers to quickly run a Pinniped application in a
+          local development environment or any production environment with
           Node.js.
         </p>
-        <p>Visual - Video snippet showing project creation</p>
+        <Graphic file={portability} extension="mp4" />
         <h5>
           <span id="h.brftibpbfh8x">Extensibility</span>
         </h5>
         <p>
           Pinniped’s business logic and API functionality can be customized with
           locally executed JavaScript, avoiding the increased network latency
-          and configuration complexity of serverless functions that extend many
-          other BaaS solutions. Pinniped functions run in a Node JS runtime,
-          supporting up-to-date JavaScript ES6 features, the Node API, and npm
-          packages familiar to most Javascript engineers. This implementation
-          also affects Pinniped's scalability, but we’ll defer that discussion
-          until later in the case study.
+          and configuration complexity of serverless functions. Pinniped’s
+          extensibility functions run in a Node JS runtime, supporting
+          up-to-date JavaScript ES6 features, the Node API, and npm packages
+          familiar to most Javascript engineers. This implementation also
+          affects Pinniped's scalability, but we’ll defer that discussion until
+          later in the case study.
         </p>
-        <p>
-          <a
-            href="https://drive.google.com/file/d/1KajHoYdlBU87mCafuz1vN03pwR_Aur-q/view?usp=sharing"
-            target="_blank"
-          >
-            Visual - Video snippet showing event an event handler being written
-            and registered in the index.js file
-          </a>
-        </p>
+        <Graphic file={extensibility} extension="mp4" />
         <h5>
-          <span id="h.b54w2gxrrbbx">User experience</span>
+          <span id="h.b54w2gxrrbbx">User Experience</span>
         </h5>
         <p>
-          We wanted Pinniped to be easy to use by making it simple to interact
+          We wanted Pinniped to be easy to use, so we made it simple to interact
           with and integrate into any application. Simple workflows allow users
-          to create a Pinniped-powered application, deploy it onto a virtual
-          private server (VPS), and manage it through an admin dashboard.
+          to create a Pinniped application, deploy it onto a virtual private
+          server (VPS), and manage it through an admin dashboard.
         </p>
-        <h6>
-          <span id="h.ldkgtiqek17b">
-            <a
-              href="https://drive.google.com/file/d/1KlgmjDGYDT3Ne5Bzvy3OzFTzqYAQEsoQ/view?usp=drive_link"
-              target="_blank"
-            >
-              Visual - Video snippet showing the use of the admin UI
-            </a>
-          </span>
-        </h6>
-        <p>
-          <img
-            src="https://lh7-us.googleusercontent.com/DPyEmew-xZx0bqarA95gGOLsnmtdezHuk8sWqet3SEZR7A7IyBshF8uc6-Mc6zvFe6pA6xyZphRwuPJ3BNtiVLVK8ICxo2X1kqiKmFpL1yrqVL8rn8xD6R04v2VhYlQlhySbe4bQgKuUg0AK4NQcjo9PlPOXWwPZ"
-            alt=""
-          />
-        </p>
+        <Graphic file={userExperience} extension="mp4" />
+        <Graphic file={baasCompWithPnpd} extension="png" />
         <p>
           <b>Pinniped</b> fits into the BaaS landscape as an option for
           developers who want a BaaS to build small applications in Javascript
@@ -731,44 +668,27 @@ export default function Content() {
         </h4>
         <p>
           Pinniped exposes a special set of endpoints for interacting with table
-          schemas. These data definition language (DDL) routes listen for{" "}
-          <span style={{ color: "rgb(24, 128, 56)" }}>POST</span> and{" "}
-          <span style={{ color: "rgb(24, 128, 56)" }}>PUT</span>{" "}
-          <span style={{ color: "rgb(24, 128, 56)" }}>and DELETE</span>requests
-          to create,and update, and delete table schemas in the database.
+          schemas. These routes listen for requests to create, update, and
+          delete table schemas in the database.
         </p>
-        <p>
-          <img
-            src="https://lh7-us.googleusercontent.com/SRIGBoTZ2FY6TnsmLkbnSiIdU2EmpO_ixPpilWRweyndbw-mLlA5zaiDkN4u7UtOK8b4XPV20MWJf40o6001-8G97bVZv-Y2_uJzMFo9QK9S2pXdHOEvl7Fhu-wDI1u22Hhjb414b1LjqXb8_QzdZEgMwdIaL3OD"
-            alt=""
-          />
-        </p>
+        <Graphic
+          file={CreateTableRequestSequence}
+          extension="svg"
+          alt="Rest HTTP Diagram"
+        />
         <h5>
           <span id="h.ys5rvubtk6o6">Admin UI</span>
         </h5>
         <p>
-          We created an admin UI to simplify interacting with DDL routes and to
-          act as the primary means to modify schema. Instead of writing SQL
+          We created an admin UI to simplify interacting with these routes and
+          to act as the primary means to modify schema. Instead of writing SQL
           statements, users fill in a form that defines the schema for a table.
           Our goal was to make the UI flexible enough to support users’
-          differing requirements while making it clear what operations are
-          available. To make the application work with a dynamic group of
-          database tables, we needed a way to store track the state of the
-          database and validate the form the UI sends, we need a way of
-          monitoring metadata about each table a user creates.
+          differing requirements. To make the application work with a dynamic
+          group of database tables, we needed a way to store metadata about each
+          table a user creates.
         </p>
-        <h6>
-          <span id="h.k6uq5n6l4k6y">
-            <a
-              href="https://drive.google.com/file/d/1aOWzyPWm_plcCiQReuEssPPD67HZNBl4/view?usp=sharing"
-              target="_blank"
-            >
-              Visual - Video - Detailed walkthrough of creating a table,
-              different data types, constraints, etc. A more focused walkthrough
-              of admin UI showing how a user can define a schema
-            </a>
-          </span>
-        </h6>
+        <Graphic file={schemaVid} extension="mp4" />
         <h5>
           <span id="h.qs41o8tjweeu">Table Metadata</span>
         </h5>
@@ -785,24 +705,15 @@ export default function Content() {
           in <span style={{ color: "rgb(24, 128, 56)" }}>tablemeta</span> is
           adjusted to reflect that change.
         </p>
-        <p>
-          <img
-            src="https://lh7-us.googleusercontent.com/bRZ_Y6xPur0uZecTh4HA058qsulk-zZrZnSCc9BDkgXxrFP0O9loQ-tenaD4OGkVQll5UsI9yFd2U6tT4vpVtXqyjDdpZDxYRKaLn0GDh8GfckEbTq2RxXkZTHcIH3iYHqCII79L6vWBLrplXKOr-aculKVDFOrQ"
-            alt=""
-          />
-        </p>
+        <Graphic file={sql} extension="svg" />
         <h5>
           <span id="h.u8w0gu4cfkyw">Table Model</span>
         </h5>
         <p>
-          One challenge, when developing an application that interacts with a
-          database, is the impedance mismatch issue. This occurs because data is
-          typically represented as objects in the application, whereas it is
-          stored as tables and rows in the database.One difficulty when building
-          an application that interacts with data stored in a database is the
-          impedance mismatch between how data is represented in an
-          application—generally an object—and how the data is represented and
-          stored in the database—tables and rows. This mismatch leads to the
+          Developing an application that interacts with a database can introduce
+          challenges. One of these challenges is the impedance mismatch that
+          occurs when data is represented as objects in the application but is
+          stored as tables and rows in the database. This mismatch leads to the
           need for a translation layer between the application and the database
           to manage data flow effectively.
         </p>
@@ -815,26 +726,12 @@ export default function Content() {
           database.
         </p>
         <p>
-          For Pinniped, we needed a similar translation layer to help solve two
-          main problems:
-        </p>
-        <ol>
-          <li>Communicating with the database.</li>
-          <li>
-            Detecting the difference between two tables and making schema
-            changes to an existing table.
-          </li>
-        </ol>
-        <p>
-          For Pinniped, we needed a similar translation layer to allow us to
-          manage database schema and interact with the metadata stored about
-          each table.
-        </p>
-        <p>
-          Because ORMs aren’t designed for the dynamic needs of a BaaS,{" "}
-          <b>we opted to build a custom translation layer</b> . Doing so would
-          remove the extra layer of abstraction an ORM would add, giving us more
-          flexibility and the opportunity to optimize our database performance.
+          For Pinniped, we needed a similar translation layer to manage the
+          database schema and interact with the metadata stored about each
+          table. Because ORMs aren’t designed for the dynamic needs of a BaaS,{" "}
+          <b>we opted to build a custom translation layer</b> . This choice
+          removed the extra layer of abstraction that an ORM would add, which
+          gave us more flexibility.
         </p>
         <p>
           We utilize Knex, a query builder library, and a{" "}
@@ -846,12 +743,11 @@ export default function Content() {
           we then use to build a schema migration file we pass to Knex to
           execute.
         </p>
-        <p>
-          <img
-            src="https://lh7-us.googleusercontent.com/ijhC-082nwUojuMwZ_daDjZq0ts6tFKCXlqBtS6ctXBYSSjc2Zhltua6rOWu26pAci-ElsP963i64kbR_NlBlEEZ70dWE6M3hGfXNfKyi1-Kq72s_R6NShR9gDnSJpzpMuc8qk8_oXgzLPg70mdEP6poTYPrA63L"
-            alt=""
-          />
-        </p>
+        <Graphic
+          file={tableMigrationSequence}
+          extension="svg"
+          alt="Rest HTTP Diagram"
+        />
         <p>
           Handling schema changes through <b>migration files</b> is more
           complicated than simply updating tables directly, but it has benefits.
@@ -861,36 +757,21 @@ export default function Content() {
           These benefits of data integrity make up for the complexities of
           dynamically generating these migration files.
         </p>
-        <p>
-          <img
-            src="https://lh7-us.googleusercontent.com/MroEbMbsvlyxoIuoCVrzfe_SPqr7Hr26BQicJGyttvW16pvd6T02QAW7dCBnt32vyzAKh6KLzvnimgBCGnHuhKb0J6oTC0DAZIDifg_4Lhl4vqmC3HyOdhKp3RSPTZMYkeVo9UiHLUEbFsHHuVrqp0PRROlYtFnP"
-            alt=""
-          />
-        </p>
+        <Graphic file={migrationFile} extension="svg" />
         <h3>
           <span id="h.4ijxtcibqs9v">Interacting with Data</span>
         </h3>
-        <h6>
-          <span id="h.xpkvfuu3xb">
-            <a
-              href="https://drive.google.com/file/d/1duT_fPzUmU1Rh1qWAEXprw3S6FGXwWPM/view?usp=sharing"
-              target="_blank"
-            >
-              Visual - Video walkthrough of creating a record and updating it -
-              possible SDK usage
-            </a>
-          </span>
-        </h6>
+        <Graphic file={dataVid} extension="mp4" />
         <h5>
           <span id="h.8l65geerrxmx">Pinniped’s Dynamic RESTish API Layer</span>
         </h5>
         <p>
           Creating a REST API to interact with an application’s data can be a
           tedious, repetitive process. BaaS solutions automate this process by
-          automatically generating an API layer that reflects the application's
-          database schema. The challenge of auto-generating an APIs stems from
-          the application's schemas being unique to the developer's needs. So,
-          how can the API accurately create endpoints referencing the right
+          generating an API layer that reflects the application's database
+          schema. The challenge of auto-generating an API stems from the
+          application's schema being unique to the developer's needs. So, how
+          can the API accurately create endpoints referencing the right
           resources when we don’t know what those resources will be beforehand?
         </p>
         <p>
@@ -909,15 +790,8 @@ export default function Content() {
             <i>,</i>
           </span>{" "}
           <span style={{ color: "rgb(14, 16, 26)" }}>
-            as the base resource for all
-          </span>{" "}
-          <span style={{ color: "rgb(14, 16, 26)" }}>
-            create, read, update, and delete (
-          </span>
-          <span style={{ color: "rgb(14, 16, 26)" }}>CRUD</span>
-          <span style={{ color: "rgb(14, 16, 26)" }}>)</span>{" "}
-          <span style={{ color: "rgb(14, 16, 26)" }}>
-            operations. Every table is an instance of
+            as the base resource for all CRUD operations. Every table is an
+            instance of
           </span>{" "}
           <span style={{ color: "rgb(24, 128, 56)" }}>tables</span>{" "}
           <span style={{ color: "rgb(14, 16, 26)" }}>with</span>{" "}
@@ -937,12 +811,7 @@ export default function Content() {
             parameters instead of static routes based on the resource.
           </span>
         </p>
-        <p>
-          <img
-            src="https://lh7-us.googleusercontent.com/R6LlmRcvbaanckWMEVH54SofyPNYgAykj1OCUyw3VhEtYdyar4jqG07AvzZsd3kTclOsB1tB4ZfcQEi-ihMUCSWn2hWuucWczW92Fq5Naot86xD9MAwrMFM4UmaMBmhlCFj_khug1NRb5jehAj7uxK6EL7CFt4i4"
-            alt=""
-          />
-        </p>
+        <Graphic file={dynamicRoutes} extension="png" />
         <p>
           By taking this approach, Pinniped only needs to register a single set
           of route handler functions to provide a RESTish API layer for an
@@ -959,12 +828,7 @@ export default function Content() {
           their presentation tier, developers can use the simple Javascript SDK
           methods to interact with the backend.
         </p>
-        <p>
-          <img
-            src="https://lh7-us.googleusercontent.com/DJj1SMZpBlkd7tufYiMXbMHa-tKUARpqmw36umkMM949-8f_hgKiBBTX1TMGsMsCQdQXZcWkgGrSAcQPEKC67C4t7-uLa5AJI2kMgybepNG3O4dDJHzIg8ZyXAbBz7mq6o5Mki9bE8RwlwfTaAP4g9EFQ0IyDJfy"
-            alt=""
-          />
-        </p>
+        <Graphic file={sdkUsage} extension="png" />
         <h4>
           <span id="h.k56bdo322zko">
             The Challenges of Building an Auto-Generated API Layer
@@ -976,17 +840,11 @@ export default function Content() {
             resource and operation gives developers fine-grained control over
             how each route should behave.
           </b>{" "}
-          For example, on a route-by-route basis, developers can set
-          authorization and data validation rules to control interaction with
-          the route and implement application-specific functionality
-          (extensibility) in addition to the standard REST API operations.
-        </p>
-        <p>
           For example, developers can define authorization and data validation
           rules on a route-by-route basis to control interactions with each
           route. A unique handler function also allows them to implement
-          application-specific functionality in addition to the standard REST
-          API operations.
+          application-specific functionality (extensibility) in addition to the
+          standard REST API operations.
         </p>
         <p>
           <b>
@@ -994,7 +852,7 @@ export default function Content() {
             function needs to work in a general-purpose way that supports any
             underlying database schema and its unique requirements.
           </b>{" "}
-          This requirement complicates the following endpoint-specific concerns:
+          This complicates the following endpoint-specific concerns:
         </p>
         <ol>
           <li>
@@ -1007,38 +865,28 @@ export default function Content() {
             <b>Extensibility</b>
           </li>
         </ol>
-        <h4>
-          <span id="h.gk348w8h2ez7">Data Validation</span>
-        </h4>
+        <h3>
+          <span id="h.gk348w8h2ez7">Validating Data</span>
+        </h3>
         <p>
           Pinniped enforces endpoint and operation-specific data validation
           using the stored metadata about each table and middleware functions.
           This process ensures incoming data adheres to the expected structure
           for each table.
         </p>
-        <p>
-          <img
-            src="https://lh7-us.googleusercontent.com/7Xp6wgCjk8SciPxAVhwUnzKHIhT_Hds17sr8xCR-_CzjgaW-LtZQvEEp9q-xYvhJscZM0qJ4wx7lJkaXANL7EysUTM-XLpd3_9UlWlFTZnuQRFucaoJkM2di7z3dfVFUejkdt0-XnXKz3ncLruuoEMkBDHpjv3ZX"
-            alt=""
-          />
-        </p>
+        <Graphic file={createTableRequestSequence} extension="svg" />
         <p>
           The{" "}
           <span style={{ color: "rgb(24, 128, 56)" }}>LoadTableContext</span>{" "}
           middleware retrieves the relevant table metadata and uses it to
           construct a dynamic{" "}
-          <span style={{ color: "rgb(24, 128, 56)" }}>Table</span>model object
-          in memory using the{" "}
+          <span style={{ color: "rgb(24, 128, 56)" }}>Table</span> object in
+          memory using the{" "}
           <span style={{ color: "rgb(24, 128, 56)" }}>Table</span> model class,
           as previously described. This model represents the valid data format
           for the targeted table.
         </p>
-        <p>
-          <img
-            src="https://lh7-us.googleusercontent.com/jX8LD5gJooQawIQRvZSLTQ83AlMWg78PLrh9l2svHwUiiN_QgkigJdOVHRLyM8Pp_A3ihwO689yfqk70VyxVgslUthdDbdk60dsnelVyL_s_mKB1ueaCwWFe-6FYd2kzg_Ox8zpxlUUGooy4XqlBnJmQQbNUTeSc"
-            alt=""
-          />
-        </p>
+        <Graphic file={loadTableContextSequence} extension="svg" />
         <p>
           A separate data validation middleware function intercepts the request
           before it reaches the final route handler. This middleware compares
@@ -1053,34 +901,19 @@ export default function Content() {
           message detailing the constraint violation, allowing the user to
           rectify the issue and resubmit the request.
         </p>
-        <p>
-          <img
-            src="https://lh7-us.googleusercontent.com/_jFgyw9oW60ZmW3XQ6iDjKflTlpdks5s98iUmI-g4pbtwISJo0tPCQ5GBUotQZWfNC0yfJhMBrhH5yXuchky2So0DSeiF4R-4lkanJiYA1LPk2gky6dm1u-UR43x8oZeNA8QqCvYmh_O9hyB3pyGVtGXlX5GiBis"
-            alt=""
-          />
-        </p>
+        <Graphic file={validationSequence} extension="svg" />
         <h3>
-          <span id="h.zf1dsyjemv2m">Controlling Access To Data</span>
+          <span id="h.zf1dsyjemv2m">Controlling API Access</span>
         </h3>
-        <h6>
-          <span id="h.yse6meowdakh">
-            <a
-              href="https://drive.google.com/file/d/1_50jdIYx_zRi5QpGe17dr8FEHnkuoRAm/view?usp=sharing"
-              target="_blank"
-            >
-              Visual - Video- Content - Show editing table api rules.
-            </a>{" "}
-          </span>
-        </h6>
+        <Graphic file={apiRules} extension="mp4" />
         <p>
           For security concerns, developers restrict data access for different
-          users in their applications. For example, an e-commerce site
-          wouldn’twould not want all users to have access to each customer's
-          payment information. Developers give users access to select data by
-          labeling them with authorization roles. Then, before allowing access
-          to a user, the server verifies their authorization level. Here’s how
-          Pinniped achieves access control with a dynamic set of database
-          tables..
+          users in their applications. For example, an e-commerce site wouldn’t
+          want all users to have access to each customer's payment information.
+          Developers give users access to select data by labeling them with
+          authorization roles. Then, before allowing access to a user, the
+          server verifies their authorization level. Here’s how Pinniped
+          achieves access control with a dynamic set of database tables.
         </p>
         <h5>
           <span id="h.sk42wt13e3ij">Authentication</span>
@@ -1093,34 +926,17 @@ export default function Content() {
         <p>
           Pinniped implements session-based authentication through the{" "}
           <span style={{ color: "rgb(24, 128, 56)" }}>Express-Session</span> npm
-          package. This package is a middleware that runs before{" "}
-          <span style={{ color: "rgb(24, 128, 56)" }}>loadTableContext</span>,
-          creating a session for each unique client that interacts with the
-          backend. When a client makes subsequent requests, their browser
-          automatically sends the session ID back to the server within the
-          cookie. Then, the{" "}
-          <span style={{ color: "rgb(24, 128, 56)" }}>Express-Session</span>{" "}
-          middleware retrieves the corresponding session data from the
-          persistent session store and makes it available in memory via{" "}
-          <span style={{ color: "rgb(24, 128, 56)" }}>req.session</span> again.
+          package. This package provides a middleware that creates a session and
+          cookie for each unique client that interacts with the backend. When a
+          client makes subsequent requests to the backend, their browser
+          automatically sends this cookie in the request headers. The session ID
+          stored inside the cookie allows{" "}
+          <span style={{ color: "rgb(24, 128, 56)" }}>Express-Session</span> to
+          retrieve the client’s info from the persistent session store and make
+          it available in memory via the{" "}
+          <span style={{ color: "rgb(24, 128, 56)" }}>req.session</span> object.
         </p>
-        <p>
-          Pinniped implements session-based authentication through the
-          Express-Session npm package. This package provides a middleware that
-          creates a session and cookie for each unique client that interacts
-          with the backend. When a client makes subsequent requests to the
-          backend, their browser automatically sends this cookie in the request
-          headers. The session ID stored inside the cookie allows
-          Express-Session to retrieve the client’s info from the persistent
-          session store and make it available in memory via the req.session
-          object.
-        </p>
-        <p>
-          <img
-            src="https://lh7-us.googleusercontent.com/ZqHzvcc9wYc5_JHc9_tMzeQUFEqeKUvMGG-4fVwGzYG_bSJAzGm6LqZgtEbxFwfGHuVgPytVgtJYlJo4ypsKHe5eNr1Av8J1rPHum88s70TLmDGXRYxh6yIcqcAOPnCInwzGumtMi2JavIf1lpSWHglVZsViw2eW"
-            alt=""
-          />
-        </p>
+        <Graphic file={expressSessionSequence} extension="svg" />
         <h5>
           <span id="h.9lv9hdm4a5">User Roles</span>
         </h5>
@@ -1129,18 +945,13 @@ export default function Content() {
           <span style={{ color: "rgb(24, 128, 56)" }}>Admin</span> and{" "}
           <span style={{ color: "rgb(24, 128, 56)" }}>User</span>. Upon
           successful login, a user’s ID, username, and role are added to their
-          session data as a <code>user</code> object on <code>req.session</code>
-          , indicating successful authentication.Upon successful login, an
-          object containing the user’stheir username, unique ID, and role is
-          added to the user’s session, indicating successful authentication.
-          When the user logs out, this object is removed.
+          session data as a{" "}
+          <span style={{ color: "rgb(24, 128, 56)" }}>user</span> object on{" "}
+          <span style={{ color: "rgb(24, 128, 56)" }}>req.session</span>,
+          indicating successful authentication. When the user logs out, this
+          object is removed.
         </p>
-        <p>
-          <img
-            src="https://lh7-us.googleusercontent.com/qtVaHBcBfHN-mkrRhvRzaUFFU7b5SKjy8FwhQnDPhWYPGdG5SkWi9eqvwtNpnNuaLFUKNlwoILMKhjUWnUDsUsakFg2pc1uAR2TaHnCHVviJphMYRLSSbcWxA6pNkgRE81-Vxxd9lffGgom2QWuSXEjflwNhpXjQ"
-            alt=""
-          />
-        </p>
+        <Graphic file={loginSessionSequence} extension="svg" />
         <h5>
           <span id="h.5fjtwzy6hfkf">API Access Rules</span>
         </h5>
@@ -1152,19 +963,14 @@ export default function Content() {
           <span style={{ color: "rgb(24, 128, 56)" }}>creator</span>, or{" "}
           <span style={{ color: "rgb(24, 128, 56)" }}>admin</span>, are stored
           in <span style={{ color: "rgb(24, 128, 56)" }}>tablemeta</span> and
-          are made available by <code>LoadTableContext</code>, as an instance of
-          the <span style={{ color: "rgb(24, 128, 56)" }}>Table</span> model on{" "}
-          <span style={{ color: "rgb(24, 128, 56)" }}>res.locals</span> by{" "}
-          <span style={{ color: "rgb(24, 128, 56)" }}>LoadTableContext</span>.
-          This context is then available forto all remaining middleware to
-          utilize.
+          are made available by{" "}
+          <span style={{ color: "rgb(24, 128, 56)" }}>LoadTableContext</span>,
+          as an instance of the{" "}
+          <span style={{ color: "rgb(24, 128, 56)" }}>Table</span> model on{" "}
+          <span style={{ color: "rgb(24, 128, 56)" }}>res.locals</span>. This
+          context is then available for all remaining middleware to utilize.
         </p>
-        <p>
-          <img
-            src="https://lh7-us.googleusercontent.com/moT-K5j_8oFxknJAtXAimFr6Ud6bhH8ezlO3MYiKeBP2W2QX5g4Z0Ek3BkVd39CJNBI-aT-IFTkO3y1y6Titj-flo_wJQiI8zgxbIMLesRhPajwAjqOlJoqOUdhcc9ZCVEpo8PsinlE8XYMsj_T87ZHqk46144hk"
-            alt=""
-          />
-        </p>
+        <Graphic file={apiRulesRequest} extension="png" />
         <h5>
           <span id="h.7x9l1a6oyyrw">
             AuthCheck - Table Level Authorization Middleware
@@ -1174,21 +980,13 @@ export default function Content() {
           With the relevant{" "}
           <span style={{ color: "rgb(24, 128, 56)" }}>Table</span> model
           instance, accompanying API rules, and the client’s session information
-          available in memory thanks to{" "}
-          <span style={{ color: "rgb(24, 128, 56)" }}>LoadTableContext</span>{" "}
-          and <span style={{ color: "rgb(24, 128, 56)" }}>Express-Session</span>
-          , Pinniped’s{" "}
+          available in memory, Pinniped’s{" "}
           <span style={{ color: "rgb(24, 128, 56)" }}>AuthCheck</span>{" "}
-          middleware function has all the information it needs to either send an
-          error response to the client or pass the request along to its intended
-          endpoint.
+          middleware function has all the information it needs. It then either
+          sends an error response to the client or passes the request along to
+          its intended endpoint.
         </p>
-        <p>
-          <img
-            src="https://lh7-us.googleusercontent.com/kHejMQzzLfi_yijca1fL-TZiU6fHC3veqg3SUMgWoPaeP_UQtdnN8yR3-wP0-Z4XKlkluegF46n7EGS9XRM-Va3odx9mlBM7X_nDUIXUjwSIkr4FXchwfWHErJSb8edfmet5qcqT7tO7JhVs-kC3lUwA0X9duKaN"
-            alt=""
-          />
-        </p>
+        <Graphic file={authCheckSequence} extension="svg" />
         <h5>
           <span id="h.3mi426m8cso1">Row Level Authorization </span>
         </h5>
@@ -1205,15 +1003,10 @@ export default function Content() {
           response will be sent to the client, preventing them from performing
           their intended action.
         </p>
-        <p>
-          <img
-            src="https://lh7-us.googleusercontent.com/nzphfGmDWWgv0nTt7VJRtVf1h4Mk-vS9dHNrv3sIOYUZMl_iR4HeO6Y44snY5YWnPnU3R3F2X1oydugTvIbW0YxYtDMoY0lwfYb6gJwLzDB1F2GiafMnrQehSJd-AHdcsWIC7TJlWKNhloquI7JAGgdXmHTQDTeJ"
-            alt=""
-          />
-        </p>
-        <h4>
-          <span id="h.ij2f6nu5ut9a">Extensibility</span>
-        </h4>
+        <Graphic file={rowAuth} extension="png" />
+        <h3>
+          <span id="h.ij2f6nu5ut9a">Implementing Extensibility</span>
+        </h3>
         <p>
           Beyond the core CRUD operations provided by auto-generated APIs, most
           BaaS products address the lack of unique route handlers by offering
@@ -1225,11 +1018,11 @@ export default function Content() {
           We chose an alternative approach with Pinniped to minimize these
           common BaaS extensibility pain points for our target developers.
         </p>
-        <h5>
+        <h4>
           <span id="h.dfmivk1lyj78">
             A Serverless Function Alternative: Local Extensibility Framework
           </span>
-        </h5>
+        </h4>
         <p>
           Pinniped's local extensibility framework allows developers to register
           custom event handlers directly within their backend project. This
@@ -1249,13 +1042,13 @@ export default function Content() {
           </li>
           <li>
             <b>Reduced Latency:</b> Since the functions execute locally, there's
-            no cold start delaypenalty or additional latency associated with
+            no cold start delay or additional latency associated with
             communicating with a separate serverless environment.
           </li>
         </ol>
-        <h5>
+        <h4>
           <span id="h.uvbqmxlxsfnv">Local Extensibility Tradeoffs</span>
-        </h5>
+        </h4>
         <p>
           However, local extensibility also comes with a <b>key limitation:</b>{" "}
           <b>scalability</b> . Unlike serverless functions, which can scale
@@ -1268,11 +1061,11 @@ export default function Content() {
           Despite this limitation, Pinniped’s focus on ease of use and
           portability justified this tradeoff.
         </p>
-        <h5>
+        <h4>
           <span id="h.na3jyjpje7b5">
             Pinniped’s Local Extensibility Framework
           </span>
-        </h5>
+        </h4>
         <p>
           Pinniped’s local extensibility framework allows developers to register{" "}
           <b>Custom Routes</b> and <b>Event Handler Functions.</b>
@@ -1284,12 +1077,7 @@ export default function Content() {
             creation experience.
           </li>
         </ol>
-        <p>
-          <img
-            src="https://lh7-us.googleusercontent.com/fMghaOlPd4-yWV6RHpO2MvWOfQlZViDVSF-fcJxl9-gxLt4mlb8KtJujY_h7GU3GiP-ikstLxCeNpSUmogKN1Bxmv4dShAkz4jsS_Lmbzei6T1BLtZ1KgkBPtFwt2oCV2CKD8mCbOcb5-CNLDSuekVdlbpLtxmLq"
-            alt=""
-          />
-        </p>
+        <Graphic file={customRoute} extension="png" />
         <ol>
           <li>
             <b>Event Handler Functions:</b> Pinniped leverages Node.js's
@@ -1300,12 +1088,7 @@ export default function Content() {
             triggered.
           </li>
         </ol>
-        <p>
-          <img
-            src="https://lh7-us.googleusercontent.com/e8ta4jFUy4cuclbQ4i1lcdNtvy4Eep5Iv8gzsputtwOwKtY7m7_Jm-QhHCWpYpqoW3CL3FMPEcwf82HT7GMPmMI3UA8Vshy1txr8TrmOFBGiB61XEgGvhUlaYPGOcO69UqGFintqOrW9dS23mEzvUh-KhbJX85ev"
-            alt=""
-          />
-        </p>
+        <Graphic file={eventExtensibility} extension="png" />
         <h5>
           <span id="h.2bpsrrxiez8q">Under the Hood</span>
         </h5>
@@ -1325,12 +1108,7 @@ export default function Content() {
           configures and starts an Express web server that will serve the
           application.
         </p>
-        <p>
-          <img
-            src="https://lh7-us.googleusercontent.com/kcAKoE-SEKzReZ7wS2BUZTLS-JgBA0Hj4RxqOIsNaKZaVu2tgxiMJ1H85W7nvqwj1hrL-pEd9RCiWaaWYQh-ZLBLlU4msnYwpurO_V7MNMgexDiwTT1q4m8426OTMESe4skfwCw3G-fzLFdX4vxo749ro8DGnfgQ"
-            alt=""
-          />
-        </p>
+        <Graphic file={extensibilitySetupSequence} extension="svg" />
         <p>
           <b>Most API operations trigger events</b> , including CRUD operations,
           schema changes, and account management actions. These events provide
@@ -1346,17 +1124,9 @@ export default function Content() {
           analytics, server-sent events, etc) and let the route handler that
           triggered the event send its default response.
         </p>
-        <p>
-          <img
-            src="https://lh7-us.googleusercontent.com/jutseUPjkCaAYorHZo9bZKQqNh2rrmw5REXVAYt3LD3gdBQugmbFVCK1rOkuEtiSdBTBNzlw13tGW_-r5jzbGp33ca4Exw3L7K5kDa8KUqQGtuTrv6iTGlTbbM7iaM4V4fhGVhFzbc1cbRIMd3kNA3fsMtuUcacf"
-            alt=""
-          />
-        </p>
+        <Graphic file={extensibilityReqResSequence} extension="svg" />
         <h3>
-          <span id="h.otvy7jf4weox">Deployment </span>
-          <span id="h.otvy7jf4weox">and</span>
-          <span id="h.otvy7jf4weox">/</span>
-          <span id="h.otvy7jf4weox"> Hosting</span>
+          <span id="h.otvy7jf4weox">Hosting and Deployment</span>
         </h3>
         <h4>
           <span id="h.ullmek4q5ysu">An Embedded Database</span>
@@ -1389,19 +1159,14 @@ export default function Content() {
           Embedding the database means that the application can not scale
           separately from the database, and multiple application servers can’t
           use the same database. If a traffic bottleneck is reached, traditional
-          three3-tier architecture scaling strategies are impossible. Those
+          three-tier architecture scaling strategies are impossible. Those
           applications that expect to see such high volumes aren’t the intended
           users of Pinniped, so we decided the tradeoff for portability and
           simplicity was worth it. As a result, Pinniped’s architecture
           resembles two distinct tiers, with the database and application logic
           sharing one.
         </p>
-        <p>
-          <img
-            src="https://lh7-us.googleusercontent.com/xgmKkIl9PzeDl_7LcAkguPVRDFhskSl3uKC9zbU7BsSYLRarmJsh0tgaUsvezNlLGn7fjCwhFzPLW2V5O3NSF-D2Rm3Glj9sEPqNedO05o3sSDPJGBcwj2ratNX-jdqckdXlTjfjjpOtJaxJy_07zXS16BkTHjdM"
-            alt=""
-          />
-        </p>
+        <Graphic file={pinnipedArchitectureAnimation} extension="svg" />
         <h4>
           <span id="h.x7x4h4gnrmy3">Database Selection</span>
         </h4>
@@ -1410,10 +1175,10 @@ export default function Content() {
           when deciding which database to use: speed, reliability,
           documentation, and library support. One option that aligned well with
           our needs was <b>SQLite,</b> a mature, widely used, speedy SQL
-          databaseimplementation with plenty of documentation and supporting
-          libraries. It met our criteria and was also successfully used as the
-          database for PocketBase, which gave us confidence that it would work
-          for our use case.
+          database with plenty of documentation and supporting libraries. It met
+          our criteria and was also successfully used as the database for
+          PocketBase, which gave us confidence that it would work for our use
+          case.
         </p>
         <h4>
           <span id="h.6n4qjvhwyjez">Portability Considerations</span>
@@ -1462,7 +1227,7 @@ export default function Content() {
           configurations, place the project on a VPS, install Node.js, and run
           the application. Application configurations are contained in a{" "}
           <span style={{ color: "rgb(24, 128, 56)" }}>.env</span> file which
-          allows you to specify the domain for your application,set the port for
+          allows you to specify the domain for your application, the port for
           the server to listen on, the CORS whitelist, the session secret, and
           various configurations related to Pinniped’s automated TLS certificate
           feature.
@@ -1471,25 +1236,19 @@ export default function Content() {
           The application serves the Admin UI and API, at the specified domain
           and port.
         </p>
-        <p>
-          <img
-            src="https://lh7-us.googleusercontent.com/_SknpiXK5S35qob03mXnLR2V3c0kX4UpCSp5n2RRDuec6HJA99Qs8aPWCOwtc9NXq5lrN154imdyQ5DkJzdx261okYo9m5a8dq3W5-UF4PlPnvRNIpykSbtwYRYmvD6ysAl8-IyUQZ1ET80Krp33hptFsgEo3zT7"
-            alt=""
-          />
-        </p>
+        <Graphic file={startupLog} extension="png" />
         <h4>
-          <span id="h.42dn93vu5fwi">Other Security - </span>
           <span id="h.42dn93vu5fwi">HTTPS</span>
         </h4>
         <p>
           Hypertext Transfer Protocol Secure (HTTPS) is the primary
           communication protocol for sending information between a web server
-          and a clientwebsite. It secures the communication between the web
-          server and the clientwebsite by encrypting the data in transit. Its
-          importance comes from protecting the data packets from on-path
-          attacks—malicious attempts to access the data. Since HTTPS is pivotal
-          to securing communication on the internet, Pinniped automates
-          certifying the application to use HTTPS.
+          and a client. It secures the communication between the web server and
+          the client by encrypting the data in transit. Its importance comes
+          from protecting the data packets from on-path attacks—malicious
+          attempts to access the data. Since HTTPS is pivotal to securing
+          communication on the internet, Pinniped automates certifying the
+          application to use HTTPS.
         </p>
         <h5>
           <span id="h.54fmsf4tn2jb">TLS Auto Certification</span>
@@ -1507,46 +1266,26 @@ export default function Content() {
           the Pinniped application on port 443 (HTTPS) using the new
           certificates while redirecting any port 80 (HTTP) traffic to 443.
         </p>
-        <h5>
-          <span id="h.blas2swq5t4a">
-            <a
-              href="https://drive.google.com/file/d/17fEZz6QK3lnejZS4EF8L24b7DI8MT-md/view?usp=sharing"
-              target="_blank"
-            >
-              Visual - Video showing the Auto Cert Console output on startup
-            </a>
-          </span>
-        </h5>
+        <Graphic file={ssl} extension="mp4" />
         <p>
           Pinniped performs a daily check of the certificate. If it is within 30
           days of expiring, the challenge server will attempt to renew it. If
           successful, the server restarts with the new certificate.
         </p>
         <h4>
-          <span id="h.fvx641ywh83u">CLI </span>
-          <span id="h.fvx641ywh83u">Deployment</span>
-          <span id="h.fvx641ywh83u">AWS</span>
-          <span id="h.fvx641ywh83u"> Automation</span>
+          <span id="h.fvx641ywh83u">CLI Deployment</span>
         </h4>
         <p>
           While Pinniped will work in any local or cloud environment with NodeJS
           installed, the Pinniped-CLI provides an easy-to-use deployment
-          pipeline to host ayour local Pinniped application on an AWS EC2
-          instance. After installing and configuring Amazon’s AWS CLI tool with
-          AWS credentials, the Pinniped-CLI tool walks users through the
+          pipeline to host a local Pinniped application on an AWS EC2 instance.
+          After installing and configuring Amazon’s AWS CLI tool with AWS
+          credentials, the Pinniped-CLI tool walks users through the
           provisioning and deployment process. The Pinniped-CLI also automates
-          the process of starting, stopping, and updating your deployed Pinniped
+          the process of starting, stopping, and updating a deployed Pinniped
           application via a secure shell (SSH) connection.
         </p>
-        <p>
-          <a
-            href="https://drive.google.com/file/d/1od_7E18sK3Pvlu4PbijnsjXWT_mfegis/view?usp=drive_link"
-            target="_blank"
-          >
-            Visual - Video snippet showing Cli commands running to provision and
-            deploy an application.
-          </a>
-        </p>
+        <Graphic file={updatePinniped} extension="mp4" />
         <h2>
           <span id="h.h6emovkl7kr9">Future Work</span>
         </h2>
@@ -1581,33 +1320,6 @@ export default function Content() {
           implement these flexible types to increase the range of what users can
           do with Pinniped.
         </p>
-        <p>
-          <span
-            style={{
-              color: "rgb(68, 71, 70)",
-              backgroundColor: "rgb(255, 255, 255)",
-            }}
-          >
-            We knew Pinniped would need a data storage solution and a web server
-            to interact with it. We also wanted Pinniped to be portable and easy
-            to self-host for front-end developers familiar with JavaScript, so
-            we considered various strategies for doing that.
-          </span>
-        </p>
-        <h2>
-          <span id="h.ok7cbgm0o39m">Citations</span>
-        </h2>
-        <p>Work Cited</p>
-        <pre>
-          <code>
-            {"\t"}Kleppmann, Martin. &lt;i&gt;Designing Data-intensive
-            Applications: The Big Ideas Behind Reliable, Scalable, and
-            Maintainable Systems&lt;/i&gt;. O'Reilly, 2017.{"\n"}
-          </code>
-        </pre>
-        <h2>
-          <span id="h.s1lbsbuik680">References</span>
-        </h2>
       </>
     </ContentsWrapper>
   );

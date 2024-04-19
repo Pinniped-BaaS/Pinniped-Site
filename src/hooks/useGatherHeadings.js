@@ -44,7 +44,7 @@ export default function useGatherHeads() {
   const [headings, setHeadings] = useState([]);
 
   useEffect(() => {
-    const els = Array.from(document.querySelectorAll("h2, h3, h4, h5, h6")).map(
+    const els = Array.from(document.querySelectorAll("h2, h3, h4")).map(
       (el) => {
         el.setAttribute("id", el.innerText.replace(/\s+/g, "-").toLowerCase());
         const level = Number(el.nodeName.charAt(1));

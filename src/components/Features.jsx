@@ -116,6 +116,8 @@ export default function Features() {
 
 const Wrapper = styled.section`
   grid-area: features;
+
+  min-height: 1000px;
 `;
 
 const Header = styled.header`
@@ -246,9 +248,9 @@ const AnimationWrapper = styled.div`
 
   border-radius: 5px;
 
-  box-shadow: 0 0 5px var(--accent1), 0 0 5px var(--accent1),
-    0 0 10px var(--accent1), 0 0 15px var(--accent1), 0 0 20px var(--accent1),
-    0 0 25px var(--accent1), 0 0 30px var(--accent1), 0 0 40px var(--accent1);
+  box-shadow: 0 0 1px var(--accent1), 0 0 2px var(--accent1),
+    0 0 3px var(--accent1), 0 0 4px var(--accent1), 0 0 5px var(--accent1),
+    0 0 7px var(--accent1), 0 0 9px var(--accent1), 0 0 10px var(--accent1);
 `;
 
 const Image = styled.img``;

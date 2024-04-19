@@ -9,7 +9,7 @@ import CaBaaS from "./8. C-A-BaaS.svg";
 import BaasCompNoPnpd from "./9. BaaS-Comp-No-Pnpd.png";
 import portability from "./10. portability.mp4";
 import extensibility from "./11. extensibility-new.mp4";
-import useExperience from "./12. user-experience.mp4";
+import userExperience from "./12. user-experience.mp4";
 import baasCompWithPnpd from "./13. BaaS-Comp-With-Pnpd.png";
 import CreateTableRequestSequence from "./14. Create-Table-Request-Sequence.svg";
 import schemaVid from "./15. schema-vid.mp4";
@@ -58,7 +58,7 @@ const files = [
   { file: BaasCompNoPnpd, alt: "BaaS Comp No Pnpd", extension: "png" },
   { file: portability, alt: "Portability", extension: "mp4" },
   { file: extensibility, alt: "Extensibility", extension: "mp4" },
-  { file: useExperience, alt: "Use Experience", extension: "mp4" },
+  { file: userExperience, alt: "Use Experience", extension: "mp4" },
   { file: baasCompWithPnpd, alt: "BaaS Comp With Pnpd", extension: "png" },
   {
     file: CreateTableRequestSequence,
