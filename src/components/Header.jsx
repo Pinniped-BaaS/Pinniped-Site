@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import { GitHub } from "react-feather";
-
 import HeaderLogo from "../assets/images/header-logo.png";
 
 import NavDropdown from "./NavDropdown.jsx";
@@ -65,6 +63,10 @@ const LogoEl = styled.div`
 
 const LogoIcon = styled.img`
   width: 250px;
+
+  @media (max-width: 800px) {
+    width: 150px;
+  }
 `;
 
 const Nav = styled.nav`

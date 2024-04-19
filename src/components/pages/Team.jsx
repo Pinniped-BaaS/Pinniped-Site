@@ -36,7 +36,6 @@ const Member = ({ member }) => {
     <TeamCard>
       <Photo src={determinePhoto(member.name)} />
       <Name>{member.name}</Name>
-
       <Bar>
         <Icon>
           <Linkedin size={20} />

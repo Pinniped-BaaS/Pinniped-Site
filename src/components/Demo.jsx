@@ -7,26 +7,26 @@ import demoStatic from "../assets/images/demo.png";
 import demo from "../assets/videos/pinniped_demo.mp4";
 
 export default function PinnipedDemo() {
-  const [viewDemo, setViewDemo] = useState(false);
+  // const [viewDemo, setViewDemo] = useState(false);
 
-  useEffect(() => {
-    const video = document.querySelector("#demo");
-    if (viewDemo) {
-      video.play();
-    } else {
-      video.pause();
-      video.currentTime = 0;
-    }
-  }, [viewDemo]);
+  // useEffect(() => {
+  //   const video = document.querySelector("#demo");
+  //   if (viewDemo) {
+  //     video.play();
+  //   } else {
+  //     video.pause();
+  //     video.currentTime = 0;
+  //   }
+  // }, [viewDemo]);
 
   return (
     <VideoWrapper>
       <VideoStatic
         src={demoStatic}
-        className={`${viewDemo ? "closed" : "open"}`}
+        // className={`${viewDemo ? "closed" : "open"}`}
         alt="Admin Dashboard"
       />
-      <DemoButton onClick={() => setViewDemo(true)}>View Demo</DemoButton>
+      {/* <DemoButton onClick={() => setViewDemo(true)}>View Demo</DemoButton>
 
       <DemoWrapper className={`${viewDemo ? "open" : "closed"}`}>
         <Demo
@@ -38,7 +38,7 @@ export default function PinnipedDemo() {
           controls
         />
         <CloseDemo onClick={() => setViewDemo(false)}></CloseDemo>
-      </DemoWrapper>
+      </DemoWrapper> */}
     </VideoWrapper>
   );
 }

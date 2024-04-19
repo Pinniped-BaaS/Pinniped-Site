@@ -21,7 +21,6 @@ export default function useHeadsObserver(headings) {
     });
 
     headings.forEach(({ el }) => {
-      console.log(`Observing ${el}`);
       observer.current.observe(el);
     });
 

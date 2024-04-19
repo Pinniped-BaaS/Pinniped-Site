@@ -12,6 +12,8 @@ import Footer from "./components/Footer.jsx";
 
 import { Router, Route, Switch, useLocation } from "wouter";
 
+import ErrorBoundary from "./components/ErrorBoundary.jsx";
+
 function App() {
   const [pathname] = useLocation();
 
@@ -21,29 +23,34 @@ function App() {
 
   return (
     <>
-      <Wrapper>
-        <Header />
-        <ContentWrapper>
-          <Router>
-            <Switch>
-              <Route path="/">
-                <Home />
-              </Route>
-              <Route path="/docs">
-                <h1>Docs</h1>
-              </Route>
-              <Route path="/case-study">
-                <CaseStudy />
-              </Route>
-              <Route path="/team">
-                <Team />
-              </Route>
-            </Switch>
-          </Router>
-        </ContentWrapper>
-        <Footer />
-        <GlobalStyles />
-      </Wrapper>
+      <ErrorBoundary>
+        <Wrapper>
+          <Header />
+          <ContentWrapper>
+            <Router>
+              <Switch>
+                <Route path="/">
+                  <Home />
+                </Route>
+                <Route path="/case-study">
+                  <CaseStudy />
+                </Route>
+                <Route path="/team">
+                  <Team />
+                </Route>
+                <Route path="/*">
+                  <div>
+                    There is no content located at this page. Please return to
+                    the home page via the logo in the header above.
+                  </div>
+                </Route>
+              </Switch>
+            </Router>
+          </ContentWrapper>
+          <Footer />
+          <GlobalStyles />
+        </Wrapper>
+      </ErrorBoundary>
     </>
   );
 }

@@ -19,7 +19,7 @@ const getClassName = (level) => {
 
 const makeTree = (arr) => {
   const tree = [];
-  let currentLevel = 2;
+  let currentLevel = 3;
   let currentParent = tree;
   arr.forEach((item) => {
     if (item.level > currentLevel) {
@@ -33,7 +33,7 @@ const makeTree = (arr) => {
       currentLevel = item.level;
     } else if (item.level < currentLevel) {
       currentParent = tree;
-      currentLevel = 2;
+      currentLevel = 3;
     }
     currentParent.push(item);
   });
