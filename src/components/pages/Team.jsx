@@ -10,15 +10,23 @@ import Trevor from "../../assets/headshots/Trevor-Headshot.jpeg";
 const teamData = [
   {
     name: "Alan",
+    linkedIn: "https://www.linkedin.com/in/alan-b-cho/",
+    email: "mailto:alancho397@gmail.com",
   },
   {
     name: "Jonathan",
+    linkedIn: "https://www.linkedin.com/in/jonathan-hurd-006b4414/",
+    email: "mailto:hurd.jonathan@gmail.com",
   },
   {
     name: "Josh",
+    linkedIn: "https://www.linkedin.com/in/joshualakenan/",
+    email: "mailto:joshlakenan@gmail.com",
   },
   {
     name: "Trevor",
+    linkedIn: "",
+    email: "",
   },
 ];
 
@@ -43,12 +51,16 @@ const Member = ({ member }) => {
       <Photo src={determinePhoto(member.name)} />
       <Name>{member.name}</Name>
       <Bar>
-        <Icon>
-          <Linkedin size={20} />
-        </Icon>
-        <Icon>
-          <Mail size={20} />
-        </Icon>
+        <a href={`${member.linkedIn}`}>
+          <Icon>
+            <Linkedin size={20} />
+          </Icon>
+        </a>
+        <a href={`${member.email}`}>
+          <Icon>
+            <Mail size={20} />
+          </Icon>
+        </a>
       </Bar>
     </TeamCard>
   );
