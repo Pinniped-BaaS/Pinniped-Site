@@ -4,6 +4,6 @@ export default function scrollIntoView(id) {
 
     const top = document.getElementById(id).offsetTop - 100;
 
-    window.scroll({ top, behavior: "smooth" });
+    window.scroll({ top });
   };
 }

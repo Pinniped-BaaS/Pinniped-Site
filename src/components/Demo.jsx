@@ -55,6 +55,8 @@ const VideoWrapper = styled.div`
   align-items: center;
   flex-direction: column;
 
+  border-radius: 0.5rem;
+
   margin: 0 auto;
 
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
