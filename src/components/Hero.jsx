@@ -19,13 +19,6 @@ export default function Hero() {
         </LinkWrapper>
       </Actions>
       <PinnipedDemo />
-      <BaasOverview>
-        <h3>What is a BaaS?</h3>
-        Backend as a Service (BaaS) streamlines application development by
-        pre-configuring backends. BaaS solutions provide a UI for defining
-        application data structure, auto-generate an API layer to interact with
-        that data, and offer solutions for building custom application logic.
-      </BaasOverview>
     </HeroWrapper>
   );
 }

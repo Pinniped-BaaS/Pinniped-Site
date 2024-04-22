@@ -77,7 +77,7 @@ export default function Features() {
   return (
     <Wrapper>
       <Header>
-        <h2>Pinniped Key Features</h2>
+        <h2>Key Features</h2>
         <Line />
       </Header>
       <Cards>
