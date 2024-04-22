@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Linkedin, Mail } from "react-feather";
+import { Linkedin, Mail, Globe } from "react-feather";
 
 import Alan from "../../assets/headshots/Alan-Headshot.jpeg";
 import Jonathan from "../../assets/headshots/Jonathan-Headshot.jpeg";
@@ -10,15 +10,27 @@ import Trevor from "../../assets/headshots/Trevor-Headshot.jpeg";
 const teamData = [
   {
     name: "Alan",
+    linkedIn: "https://www.linkedin.com/in/alan-b-cho/",
+    email: "mailto:alancho397@gmail.com",
+    website: "",
   },
   {
     name: "Jonathan",
+    linkedIn: "https://www.linkedin.com/in/jonathan-hurd-006b4414/",
+    email: "mailto:hurd.jonathan@gmail.com",
+    website: "",
   },
   {
     name: "Josh",
+    linkedIn: "https://www.linkedin.com/in/joshualakenan/",
+    email: "mailto:joshlakenan@gmail.com",
+    website: "",
   },
   {
     name: "Trevor",
+    linkedIn: "https://www.linkedin.com/in/trevorr-j/",
+    email: "mailto:treesjones3@gmail.com",
+    website: "",
   },
 ];
 
@@ -43,11 +55,18 @@ const Member = ({ member }) => {
       <Photo src={determinePhoto(member.name)} />
       <Name>{member.name}</Name>
       <Bar>
+        <a href={`${member.linkedIn}`}>
+          <Icon>
+            <Linkedin size={20} />
+          </Icon>
+        </a>
+        <a href={`${member.email}`}>
+          <Icon>
+            <Mail size={20} />
+          </Icon>
+        </a>
         <Icon>
-          <Linkedin size={20} />
-        </Icon>
-        <Icon>
-          <Mail size={20} />
+          <Globe size={20} />
         </Icon>
       </Bar>
     </TeamCard>
