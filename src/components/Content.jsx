@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-
-
 import RestHttpDiagram from "../assets/case-study/1. rest-http-diagram.svg";
 import staticRoutesCodeSnippet from "../assets/case-study/2. static-routes-code-snippet.png";
 import middlewareAnimation from "../assets/case-study/3. middleware-animation.svg";
@@ -166,8 +164,6 @@ const Graphic = ({ file, alt, extension }) => {
 };
 
 export default function Content() {
-  
-
   return (
     <ContentsWrapper id="contents-wrapper">
       <>
@@ -208,11 +204,11 @@ export default function Content() {
           <span id="h.p60wvo2lgzpp">The Data Tier</span>
         </h4>
         <p>
-          The Data Tier is responsible for <b>data storage</b> ,{" "}
-          <b>retrieval, and management</b> within a web application. It
-          typically encompasses a database and caches. The database
-          conventionally lives on its own hardware, isolated from the other
-          tiers.
+          The Data Tier is responsible for{" "}
+          <b>data storage, retrieval, and management</b> within a web
+          application. It typically encompasses a database and caches. The
+          database conventionally lives on its own hardware, isolated from the
+          other tiers.
         </p>
         <h4>
           <span id="h.yp62vtvaazpu">The Application Tier</span>
@@ -361,7 +357,7 @@ export default function Content() {
         <p>
           Developing a robust application tier presents several hurdles. One
           major challenge is{" "}
-          <b>efficiently creating and maintaining an API layer</b> , especially
+          <b>efficiently creating and maintaining an API layer</b>, especially
           for applications with numerous resources. Exposing each resource
           through a well-designed API can be a repetitive task. Beyond API
           development, other challenges include implementing strong security
@@ -385,7 +381,7 @@ export default function Content() {
         </h4>
         <p>
           While every web application is unique,{" "}
-          <b>the challenges described above are common</b> , leading to the
+          <b>the challenges described above are common</b>, leading to the
           development of tools such as IaaS, PaaS, and BaaS that solve some or
           all of these challenges with varying levels of control and
           abstraction. If a developer wants the most control, they would address
@@ -453,7 +449,7 @@ export default function Content() {
           The more an application follows norms, such as utilizing a REST API to
           interact with entities stored in a database, the more likely a BaaS
           can be helpful. A BaaS generally <b>increases abstraction</b> to{" "}
-          <b>increase developers' ease of use</b> . However, if an application’s
+          <b>increase developers' ease of use</b>. However, if an application’s
           needs are unique, a BaaS product’s abstractions can be limiting.
         </p>
         <h6>
@@ -585,11 +581,11 @@ export default function Content() {
         </h4>
         <p>
           Among the BaaS options, we saw an opportunity to build a BaaS that was{" "}
-          <b>easy to self-host</b> and <b>customize with JavaScript</b> , a
+          <b>easy to self-host</b> and <b>customize with JavaScript</b>, a
           language familiar to most front-end engineers. One that could
           streamline application development by providing database management
           and API server functionality, while prioritizing ease of use. A
-          solution intendedfor <b>small teams</b> that value flexibility and
+          solution intended for <b>small teams</b> that value flexibility and
           don’t need all the features offered by a larger BaaS. This is
           reflected in the design choices we made for Pinniped:
         </p>
@@ -599,7 +595,7 @@ export default function Content() {
         <p>
           We wanted Pinniped to be as simple as possible to deploy. Because we
           were targeting small applications, we decided to run Pinniped as a
-          single process with a <b>combined application and data tier</b> . This
+          single process with a <b>combined application and data tier</b>. This
           departs from the typical three-tier architecture and has significant
           drawbacks when it comes to scalability, as Pinniped cannot scale the
           server and database separately. We’ll continue exploring this
@@ -634,7 +630,6 @@ export default function Content() {
           server (VPS), and manage it through an admin dashboard.
         </p>
         <Graphic file={userExperience} extension="mp4" />
-        <Graphic file={baasCompWithPnpd} extension="png" />
         <p>
           <b>Pinniped</b> fits into the BaaS landscape as an option for
           developers who want a BaaS to build small applications in Javascript
@@ -644,6 +639,7 @@ export default function Content() {
           limited, so it’s unsuited for large-scale or enterprise applications
           that expect to see high traffic.
         </p>
+        <Graphic file={baasCompWithPnpd} extension="png" />
         <h2>
           <span id="h.ekry0lqxnum2">Pinniped Design</span>
         </h2>
@@ -729,7 +725,7 @@ export default function Content() {
           For Pinniped, we needed a similar translation layer to manage the
           database schema and interact with the metadata stored about each
           table. Because ORMs aren’t designed for the dynamic needs of a BaaS,{" "}
-          <b>we opted to build a custom translation layer</b> . This choice
+          <b>we opted to build a custom translation layer</b>. This choice
           removed the extra layer of abstraction that an ORM would add, which
           gave us more flexibility.
         </p>
@@ -778,12 +774,12 @@ export default function Content() {
           <span style={{ color: "rgb(14, 16, 26)" }}>
             <b>
               In contrast to traditional REST APIs that require pre-defined
-              routes for each resource, Pinniped utilizes a dynamic approach
+              routes for each resource, Pinniped utilizes a dynamic approach.
             </b>{" "}
           </span>
           <span style={{ color: "rgb(14, 16, 26)" }}>
-            . Rather than representing each table as a top-level resource, as in
-            a standard backend, Pinniped uses a single resource,
+            Rather than representing each table as a top-level resource, as in a
+            standard backend, Pinniped uses a single resource,
           </span>{" "}
           <span style={{ color: "rgb(24, 128, 56)" }}>tables</span>
           <span style={{ color: "rgb(14, 16, 26)" }}>
@@ -1051,7 +1047,7 @@ export default function Content() {
         </h4>
         <p>
           However, local extensibility also comes with a <b>key limitation:</b>{" "}
-          <b>scalability</b> . Unlike serverless functions, which can scale
+          <b>scalability</b>. Unlike serverless functions, which can scale
           independently in a traditional backend architecture, local functions
           share the resource pool of the Pinniped backend. This limits their
           ability to handle high volumes of concurrent requests compared to
@@ -1110,7 +1106,7 @@ export default function Content() {
         </p>
         <Graphic file={extensibilitySetupSequence} extension="svg" />
         <p>
-          <b>Most API operations trigger events</b> , including CRUD operations,
+          <b>Most API operations trigger events</b>, including CRUD operations,
           schema changes, and account management actions. These events provide
           access to the Express request and response objects along with any
           relevant data from the route that triggered the event. This allows
@@ -1305,14 +1301,18 @@ export default function Content() {
           tool such as Litestream which automatically replicates the database to
           offsite storage.
         </p>
-        <p>File Storage</p>
+        <h3>
+          <p>File Storage</p>
+        </h3>
         <p>
           File storage is a commonly provided BaaS offering, and there are many
           situations when Pinniped users might want native support for it. It
           would be great to allow for both local storage and integration with
           cloud storage solutions.
         </p>
-        <p>Type Flexibility</p>
+        <h3>
+          <p>Type Flexibility</p>
+        </h3>
         <p>
           An oddity of SQLite databases is that they don’t strictly type
           columns. It makes SQLite unique in the SQL world and is useful when
