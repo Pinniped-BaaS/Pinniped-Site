@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Linkedin, Mail } from "react-feather";
+import { Linkedin, Mail, Globe } from "react-feather";
 
 import Alan from "../../assets/headshots/Alan-Headshot.jpeg";
 import Jonathan from "../../assets/headshots/Jonathan-Headshot.jpeg";
@@ -12,21 +12,25 @@ const teamData = [
     name: "Alan",
     linkedIn: "https://www.linkedin.com/in/alan-b-cho/",
     email: "mailto:alancho397@gmail.com",
+    website: "",
   },
   {
     name: "Jonathan",
     linkedIn: "https://www.linkedin.com/in/jonathan-hurd-006b4414/",
     email: "mailto:hurd.jonathan@gmail.com",
+    website: "",
   },
   {
     name: "Josh",
     linkedIn: "https://www.linkedin.com/in/joshualakenan/",
     email: "mailto:joshlakenan@gmail.com",
+    website: "",
   },
   {
     name: "Trevor",
-    linkedIn: "",
-    email: "",
+    linkedIn: "https://www.linkedin.com/in/trevorr-j/",
+    email: "mailto:treesjones3@gmail.com",
+    website: "",
   },
 ];
 
@@ -61,6 +65,9 @@ const Member = ({ member }) => {
             <Mail size={20} />
           </Icon>
         </a>
+        <Icon>
+          <Globe size={20} />
+        </Icon>
       </Bar>
     </TeamCard>
   );
