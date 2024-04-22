@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { GitHub } from "react-feather";
 
 const links = [
@@ -8,13 +8,16 @@ const links = [
 ];
 
 export default function Links({ setOpen }) {
+  const [location] = useLocation();
   return (
     <>
       {links.map((link, index) => (
         <LinkWrapper key={index}>
           <Link
             to={link.to}
-            onClick={() => {
+            onClick={(e) => {
+              if (location.includes("case-study") && link.text === "Case Study")
+                e.preventDefault();
               if (setOpen && typeof setOpen === "function") {
                 setOpen(false);
               }

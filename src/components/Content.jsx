@@ -79,22 +79,25 @@ const ContentsWrapper = styled.section`
 
   h2 {
     font-size: 2rem;
+    margin-top: 2rem;
+    &:first-of-type {
+      margin-top: 0;
+    }
   }
 
   h3 {
-    font-size: 1.8rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
+    margin-top: 1rem;
   }
 
   h4 {
     font-size: 1.3rem;
+    margin-top: 0.7rem;
   }
 
   h5 {
     font-size: 1.1rem;
+    margin-top: 0.5rem;
   }
 
   h6 {
@@ -108,60 +111,140 @@ const ContentsWrapper = styled.section`
     max-width: max-content;
     white-space: wrap;
   }
+  #rest-http-diagram {
+    width: 20%;
+  }
 `;
 
 const GraphicWrapper = styled.div`
   --graphic-radius: 5px;
   display: flex;
-  justify-content: stretch;
+  justify-content: center;
   border-radius: var(--graphic-radius);
+  // border: 1px solid red;
+
+  width: 100%;
 
   & img,
   video,
   object {
-    min-width: 75%;
-    max-width: 95%;
     height: auto;
-    border-radius: var(--graphic-radius);
+  }
+
+  #static-routes-code-snippet {
+    width: 50%;
   }
 `;
 
-const Image = ({ src, alt }) => {
+const ImageWrapper = styled.img`
+  min-width: 50%;
+  width: ${(props) => (props.$width ? props.$width : "95%")};
+  max-width: 95%;
+
+  border-radius: 15px;
+  padding: 10px;
+  border: ${({ $removeBorder }) =>
+    $removeBorder ? "none" : "1px solid var(--foreground)"};
+  box-shadow: ${({ $removeBorder }) =>
+    $removeBorder ? "none" : "rgba(149, 157, 165, 0.2) 0px 8px 24px"};
+
+  @media (max-width: 900px) {
+    width: 95%;
+  }
+`;
+
+const VideoWrapper = styled.video`
+  min-width: 50%;
+  width: ${(props) => (props.$width ? props.$width : "95%")};
+  max-width: 95%;
+
+  border-radius: 5px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  @media (max-width: 900px) {
+    width: 95%;
+  }
+`;
+
+const SVGWrapper = styled.object`
+  min-width: 50%;
+  width: ${(props) => (props.$width ? props.$width : "95%")};
+  max-width: 95%;
+
+  border-radius: 15px;
+  padding: 10px;
+  border: ${({ $removeBorder }) =>
+    $removeBorder ? "none" : "1px solid var(--foreground)"};
+  box-shadow: ${({ $removeBorder }) =>
+    $removeBorder ? "none" : "rgba(149, 157, 165, 0.2) 0px 8px 24px"};
+
+  @media (max-width: 900px) {
+    width: 95%;
+  }
+`;
+
+const Image = ({ src, alt, width, removeBorder }) => {
   return (
     <GraphicWrapper className="graphic-wrapper">
-      <img src={src} alt={alt} />
+      <ImageWrapper
+        src={src}
+        alt={alt}
+        $width={width}
+        $removeBorder={removeBorder}
+      />
     </GraphicWrapper>
   );
 };
 
-const Video = ({ src, alt }) => {
+const Video = ({ src, alt, width }) => {
   return (
     <GraphicWrapper className="graphic-wrapper">
-      <video muted controls alt={alt}>
+      <VideoWrapper muted controls alt={alt} $width={width}>
         <source src={src} type="video/mp4" />
-      </video>
+      </VideoWrapper>
     </GraphicWrapper>
   );
 };
 
-const Animation = ({ svg, alt }) => {
+const Animation = ({ svg, alt, width, removeBorder }) => {
   return (
     <GraphicWrapper className="graphic-wrapper">
-      <object type="image/svg+xml" data={svg} alt={alt} />
+      <SVGWrapper
+        type="image/svg+xml"
+        data={svg}
+        alt={alt}
+        $width={width}
+        $removeBorder={removeBorder}
+      />
     </GraphicWrapper>
   );
 };
 
-const Graphic = ({ file, alt, extension }) => {
+const Graphic = ({ file, alt, extension, width, removeBorder }) => {
   switch (extension) {
     case "svg":
-      return <Animation svg={file} alt={alt} />;
+      return (
+        <Animation
+          svg={file}
+          alt={alt}
+          width={width}
+          removeBorder={removeBorder}
+        />
+      );
     case "mp4":
-      return <Video src={file} alt={alt} />;
+      return (
+        <Video src={file} alt={alt} width={width} removeBorder={removeBorder} />
+      );
     default:
-      return <Image src={file} alt={alt} />;
+      return (
+        <Image src={file} alt={alt} width={width} removeBorder={removeBorder} />
+      );
   }
 };
+
+const Filler = styled.div`
+  height: 800px;
+`;
 
 export default function Content() {
   return (
@@ -204,11 +287,11 @@ export default function Content() {
           <span id="h.p60wvo2lgzpp">The Data Tier</span>
         </h4>
         <p>
-          The Data Tier is responsible for <b>data storage</b> ,{" "}
-          <b>retrieval, and management</b> within a web application. It
-          typically encompasses a database and caches. The database
-          conventionally lives on its own hardware, isolated from the other
-          tiers.
+          The Data Tier is responsible for{" "}
+          <b>data storage, retrieval, and management</b> within a web
+          application. It typically encompasses a database and caches. The
+          database conventionally lives on its own hardware, isolated from the
+          other tiers.
         </p>
         <h4>
           <span id="h.yp62vtvaazpu">The Application Tier</span>
@@ -278,6 +361,7 @@ export default function Content() {
           file={RestHttpDiagram}
           extension="svg"
           alt="Rest HTTP Diagram"
+          width="50%"
         />
         <p>
           Here’s a simple example showing the registration of route handler
@@ -287,7 +371,8 @@ export default function Content() {
         <Graphic
           file={staticRoutesCodeSnippet}
           extension="png"
-          alt="Rest HTTP Diagram"
+          alt="Static Routes Code Snippet"
+          width="50%"
         />
         <h6>
           <span id="h.15bxho82qg7m">Middleware</span>
@@ -301,7 +386,7 @@ export default function Content() {
         <Graphic
           file={middlewareAnimation}
           extension="svg"
-          alt="Rest HTTP Diagram"
+          alt="Middleware Animation"
         />
         <h4>
           <span id="h.h03wvg9n2q4q">The Presentation Tier</span>
@@ -321,7 +406,9 @@ export default function Content() {
         <Graphic
           file={threeTierArchitectureAnimation}
           extension="svg"
-          alt="Rest HTTP Diagram"
+          alt="Three Tier Architecture Animation"
+          removeBorder
+          width="80%"
         />
         <h4>
           <span id="h.qaufus87ww">Three-Tier Architecture Challenges</span>
@@ -357,7 +444,7 @@ export default function Content() {
         <p>
           Developing a robust application tier presents several hurdles. One
           major challenge is{" "}
-          <b>efficiently creating and maintaining an API layer</b> , especially
+          <b>efficiently creating and maintaining an API layer</b>, especially
           for applications with numerous resources. Exposing each resource
           through a well-designed API can be a repetitive task. Beyond API
           development, other challenges include implementing strong security
@@ -381,13 +468,19 @@ export default function Content() {
         </h4>
         <p>
           While every web application is unique,{" "}
-          <b>the challenges described above are common</b> , leading to the
+          <b>the challenges described above are common</b>, leading to the
           development of tools such as IaaS, PaaS, and BaaS that solve some or
           all of these challenges with varying levels of control and
           abstraction. If a developer wants the most control, they would address
           each of these challenges themselves.
         </p>
-        <Graphic file={CaNoTool} extension="svg" alt="No tool" />
+        <Graphic
+          file={CaNoTool}
+          extension="svg"
+          alt="No tool"
+          removeBorder
+          width="80%"
+        />
         <h5>
           <span id="h.49xtimwg6pzp">Infrastructure as a Service - IaaS</span>
         </h5>
@@ -404,7 +497,7 @@ export default function Content() {
           application dependencies, and configuring reverse proxies, firewalls,
           and load balancers.
         </p>
-        <Graphic file={CaIaaS} extension="svg" />
+        <Graphic file={CaIaaS} extension="svg" removeBorder width="80%" />
         <h5>
           <span id="h.7e489zbi3aib">Platform as a Service - PaaS</span>
         </h5>
@@ -421,7 +514,7 @@ export default function Content() {
           of vendor lock-in. Moving an application away from a PaaS product can
           be challenging.
         </p>
-        <Graphic file={CaPaaS} extension="svg" />
+        <Graphic file={CaPaaS} extension="svg" removeBorder width="80%" />
         <h5>
           <span id="h.s3kx2ba84bop">Backend as a Service - BaaS</span>
         </h5>
@@ -444,12 +537,12 @@ export default function Content() {
           These features enable developers to focus on their application's
           business logic and functionality.
         </p>
-        <Graphic file={CaBaaS} extension="svg" />
+        <Graphic file={CaBaaS} extension="svg" removeBorder width="80%" />
         <p>
           The more an application follows norms, such as utilizing a REST API to
           interact with entities stored in a database, the more likely a BaaS
           can be helpful. A BaaS generally <b>increases abstraction</b> to{" "}
-          <b>increase developers' ease of use</b> . However, if an application’s
+          <b>increase developers' ease of use</b>. However, if an application’s
           needs are unique, a BaaS product’s abstractions can be limiting.
         </p>
         <h6>
@@ -538,7 +631,12 @@ export default function Content() {
           some of today’s more popular BaaS solutions and the features they
           offer.
         </p>
-        <Graphic file={BaasCompNoPnpd} extension="png" />
+        <Graphic
+          file={BaasCompNoPnpd}
+          extension="png"
+          width="80%"
+          removeBorder
+        />
         <ul>
           <li>
             <p>
@@ -581,11 +679,11 @@ export default function Content() {
         </h4>
         <p>
           Among the BaaS options, we saw an opportunity to build a BaaS that was{" "}
-          <b>easy to self-host</b> and <b>customize with JavaScript</b> , a
+          <b>easy to self-host</b> and <b>customize with JavaScript</b>, a
           language familiar to most front-end engineers. One that could
           streamline application development by providing database management
           and API server functionality, while prioritizing ease of use. A
-          solution intendedfor <b>small teams</b> that value flexibility and
+          solution intended for <b>small teams</b> that value flexibility and
           don’t need all the features offered by a larger BaaS. This is
           reflected in the design choices we made for Pinniped:
         </p>
@@ -595,7 +693,7 @@ export default function Content() {
         <p>
           We wanted Pinniped to be as simple as possible to deploy. Because we
           were targeting small applications, we decided to run Pinniped as a
-          single process with a <b>combined application and data tier</b> . This
+          single process with a <b>combined application and data tier</b>. This
           departs from the typical three-tier architecture and has significant
           drawbacks when it comes to scalability, as Pinniped cannot scale the
           server and database separately. We’ll continue exploring this
@@ -630,7 +728,7 @@ export default function Content() {
           server (VPS), and manage it through an admin dashboard.
         </p>
         <Graphic file={userExperience} extension="mp4" />
-        <Graphic file={baasCompWithPnpd} extension="png" />
+        <Graphic file={baasCompWithPnpd} extension="png" removeBorder />
         <p>
           <b>Pinniped</b> fits into the BaaS landscape as an option for
           developers who want a BaaS to build small applications in Javascript
@@ -640,6 +738,7 @@ export default function Content() {
           limited, so it’s unsuited for large-scale or enterprise applications
           that expect to see high traffic.
         </p>
+        <Graphic file={baasCompWithPnpd} extension="png" />
         <h2>
           <span id="h.ekry0lqxnum2">Pinniped Design</span>
         </h2>
@@ -725,7 +824,7 @@ export default function Content() {
           For Pinniped, we needed a similar translation layer to manage the
           database schema and interact with the metadata stored about each
           table. Because ORMs aren’t designed for the dynamic needs of a BaaS,{" "}
-          <b>we opted to build a custom translation layer</b> . This choice
+          <b>we opted to build a custom translation layer</b>. This choice
           removed the extra layer of abstraction that an ORM would add, which
           gave us more flexibility.
         </p>
@@ -753,7 +852,7 @@ export default function Content() {
           These benefits of data integrity make up for the complexities of
           dynamically generating these migration files.
         </p>
-        <Graphic file={migrationFile} extension="png" />
+        <Graphic file={migrationFile} extension="png" width="65%" />
         <h3>
           <span id="h.4ijxtcibqs9v">Interacting with Data</span>
         </h3>
@@ -774,12 +873,12 @@ export default function Content() {
           <span style={{ color: "rgb(14, 16, 26)" }}>
             <b>
               In contrast to traditional REST APIs that require pre-defined
-              routes for each resource, Pinniped utilizes a dynamic approach
+              routes for each resource, Pinniped utilizes a dynamic approach.
             </b>{" "}
           </span>
           <span style={{ color: "rgb(14, 16, 26)" }}>
-            . Rather than representing each table as a top-level resource, as in
-            a standard backend, Pinniped uses a single resource,
+            Rather than representing each table as a top-level resource, as in a
+            standard backend, Pinniped uses a single resource,
           </span>{" "}
           <span style={{ color: "rgb(24, 128, 56)" }}>tables</span>
           <span style={{ color: "rgb(14, 16, 26)" }}>
@@ -807,7 +906,7 @@ export default function Content() {
             parameters instead of static routes based on the resource.
           </span>
         </p>
-        <Graphic file={dynamicRoutes} extension="png" />
+        <Graphic file={dynamicRoutes} extension="png" width="80%" />
         <p>
           By taking this approach, Pinniped only needs to register a single set
           of route handler functions to provide a RESTish API layer for an
@@ -824,7 +923,7 @@ export default function Content() {
           their presentation tier, developers can use the simple Javascript SDK
           methods to interact with the backend.
         </p>
-        <Graphic file={sdkUsage} extension="png" />
+        <Graphic file={sdkUsage} extension="png" width="60%" />
         <h4>
           <span id="h.k56bdo322zko">
             The Challenges of Building an Auto-Generated API Layer
@@ -897,7 +996,7 @@ export default function Content() {
           message detailing the constraint violation, allowing the user to
           rectify the issue and resubmit the request.
         </p>
-        <Graphic file={validationSequence} extension="svg" />
+        <Graphic file={validationSequence} extension="svg" width="70%" />
         <h3>
           <span id="h.zf1dsyjemv2m">Controlling API Access</span>
         </h3>
@@ -947,7 +1046,7 @@ export default function Content() {
           indicating successful authentication. When the user logs out, this
           object is removed.
         </p>
-        <Graphic file={loginSessionSequence} extension="svg" />
+        <Graphic file={loginSessionSequence} extension="svg" width="80%" />
         <h5>
           <span id="h.5fjtwzy6hfkf">API Access Rules</span>
         </h5>
@@ -966,7 +1065,7 @@ export default function Content() {
           <span style={{ color: "rgb(24, 128, 56)" }}>res.locals</span>. This
           context is then available for all remaining middleware to utilize.
         </p>
-        <Graphic file={apiRulesRequest} extension="png" />
+        <Graphic file={apiRulesRequest} extension="png" width="65%" />
         <h5>
           <span id="h.7x9l1a6oyyrw">
             AuthCheck - Table Level Authorization Middleware
@@ -982,7 +1081,7 @@ export default function Content() {
           sends an error response to the client or passes the request along to
           its intended endpoint.
         </p>
-        <Graphic file={authCheckSequence} extension="svg" />
+        <Graphic file={authCheckSequence} extension="svg" width="65%" />
         <h5>
           <span id="h.3mi426m8cso1">Row Level Authorization </span>
         </h5>
@@ -999,7 +1098,7 @@ export default function Content() {
           response will be sent to the client, preventing them from performing
           their intended action.
         </p>
-        <Graphic file={rowAuth} extension="png" />
+        <Graphic file={rowAuth} extension="png" width="85%" />
         <h3>
           <span id="h.ij2f6nu5ut9a">Implementing Extensibility</span>
         </h3>
@@ -1047,7 +1146,7 @@ export default function Content() {
         </h4>
         <p>
           However, local extensibility also comes with a <b>key limitation:</b>{" "}
-          <b>scalability</b> . Unlike serverless functions, which can scale
+          <b>scalability</b>. Unlike serverless functions, which can scale
           independently in a traditional backend architecture, local functions
           share the resource pool of the Pinniped backend. This limits their
           ability to handle high volumes of concurrent requests compared to
@@ -1073,7 +1172,7 @@ export default function Content() {
             creation experience.
           </li>
         </ol>
-        <Graphic file={customRoute} extension="png" />
+        <Graphic file={customRoute} extension="png" width="70%" />
         <ol>
           <li>
             <b>Event Handler Functions:</b> Pinniped leverages Node.js's
@@ -1084,7 +1183,7 @@ export default function Content() {
             triggered.
           </li>
         </ol>
-        <Graphic file={eventExtensibility} extension="png" />
+        <Graphic file={eventExtensibility} extension="png" width="85%" />
         <h5>
           <span id="h.2bpsrrxiez8q">Under the Hood</span>
         </h5>
@@ -1104,9 +1203,13 @@ export default function Content() {
           configures and starts an Express web server that will serve the
           application.
         </p>
-        <Graphic file={extensibilitySetupSequence} extension="svg" />
+        <Graphic
+          file={extensibilitySetupSequence}
+          extension="svg"
+          width="80%"
+        />
         <p>
-          <b>Most API operations trigger events</b> , including CRUD operations,
+          <b>Most API operations trigger events</b>, including CRUD operations,
           schema changes, and account management actions. These events provide
           access to the Express request and response objects along with any
           relevant data from the route that triggered the event. This allows
@@ -1162,7 +1265,11 @@ export default function Content() {
           resembles two distinct tiers, with the database and application logic
           sharing one.
         </p>
-        <Graphic file={pinnipedArchitectureAnimation} extension="svg" />
+        <Graphic
+          file={pinnipedArchitectureAnimation}
+          extension="svg"
+          removeBorder
+        />
         <h4>
           <span id="h.x7x4h4gnrmy3">Database Selection</span>
         </h4>
@@ -1232,7 +1339,7 @@ export default function Content() {
           The application serves the Admin UI and API, at the specified domain
           and port.
         </p>
-        <Graphic file={startupLog} extension="png" />
+        <Graphic file={startupLog} extension="png" width="60%" />
         <h4>
           <span id="h.42dn93vu5fwi">HTTPS</span>
         </h4>
@@ -1301,14 +1408,18 @@ export default function Content() {
           tool such as Litestream which automatically replicates the database to
           offsite storage.
         </p>
-        <p>File Storage</p>
+        <h3>
+          <p>File Storage</p>
+        </h3>
         <p>
           File storage is a commonly provided BaaS offering, and there are many
           situations when Pinniped users might want native support for it. It
           would be great to allow for both local storage and integration with
           cloud storage solutions.
         </p>
-        <p>Type Flexibility</p>
+        <h3>
+          <p>Type Flexibility</p>
+        </h3>
         <p>
           An oddity of SQLite databases is that they don’t strictly type
           columns. It makes SQLite unique in the SQL world and is useful when
@@ -1316,6 +1427,7 @@ export default function Content() {
           implement these flexible types to increase the range of what users can
           do with Pinniped.
         </p>
+        <Filler></Filler>
       </>
     </ContentsWrapper>
   );

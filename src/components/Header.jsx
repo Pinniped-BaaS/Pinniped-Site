@@ -35,7 +35,7 @@ const FixHeader = styled.div`
   background-color: var(--background);
   border-bottom: 1px solid var(--accent2);
   padding: 20px 0;
-  margin-bottom: 30px;
+  // margin-bottom: 30px;
   opacity: 0.97;
 `;
 

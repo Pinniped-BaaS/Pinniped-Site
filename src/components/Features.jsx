@@ -13,13 +13,13 @@ import easeOfUseVideo from "../assets/videos/ease.mp4";
 const chooseIcon = (feature) => {
   switch (feature.header) {
     case "Portable":
-      return <Move size={45} />;
+      return <Move size={30} />;
     case "Extensible":
-      return <Sliders size={45} />;
+      return <Sliders size={30} />;
     case "Easy to Use":
-      return <Check size={45} />;
+      return <Check size={30} />;
     default:
-      return <Move size={45} />;
+      return <Move size={30} />;
   }
 };
 
@@ -77,7 +77,7 @@ export default function Features() {
   return (
     <Wrapper>
       <Header>
-        <h2>Key Features</h2>
+        <h2>Pinniped Key Features</h2>
         <Line />
       </Header>
       <Cards>
@@ -129,7 +129,6 @@ const Header = styled.header`
   h2 {
     font-size: 1.2rem;
     font-weight: 200;
-    color: var(--text-color);
     white-space: nowrap;
   }
 `;
@@ -182,6 +181,10 @@ const Card = styled.div`
 
   &:hover {
     transform: translateY(-5px);
+
+    @media (max-width: 800px) {
+      transform: none;
+    }
     color: var(--accent3);
   }
 
@@ -200,8 +203,8 @@ const Card = styled.div`
   svg {
     color: var(--accent3);
     position: absolute;
-    top: -10px;
-    left: -10px;
+    top: 3px;
+    left: 3px;
   }
 `;
 

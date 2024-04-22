@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Linkedin, Mail } from "react-feather";
+import { Linkedin, Mail, Globe, GitHub } from "react-feather";
 
 import Alan from "../../assets/headshots/Alan-Headshot.jpeg";
 import Jonathan from "../../assets/headshots/Jonathan-Headshot.jpeg";
@@ -10,15 +10,35 @@ import Trevor from "../../assets/headshots/Trevor-Headshot.jpeg";
 const teamData = [
   {
     name: "Alan",
+    linkedIn: "https://www.linkedin.com/in/alan-b-cho/",
+    github: "https://github.com/alan-cho",
+    email: "mailto:alancho397@gmail.com",
+    website: "",
+    location: "Dallas, TX",
   },
   {
     name: "Jonathan",
+    linkedIn: "https://www.linkedin.com/in/jonathan-hurd-006b4414/",
+    github: "https://github.com/Jondruh",
+    email: "mailto:hurd.jonathan@gmail.com",
+    website: "",
+    location: "Eau Claire, WI",
   },
   {
     name: "Josh",
+    linkedIn: "https://www.linkedin.com/in/joshualakenan/",
+    github: "https://github.com/JoshLakenan",
+    email: "mailto:joshlakenan@gmail.com",
+    website: "",
+    location: "Chicago, IL",
   },
   {
     name: "Trevor",
+    linkedIn: "https://www.linkedin.com/in/trevorr-j/",
+    github: "https://github.com/trees543",
+    email: "mailto:treesjones3@gmail.com",
+    website: "",
+    location: "Dallas, TX",
   },
 ];
 
@@ -42,13 +62,26 @@ const Member = ({ member }) => {
     <TeamCard>
       <Photo src={determinePhoto(member.name)} />
       <Name>{member.name}</Name>
+      {member.location}
       <Bar>
+        <a href={`${member.linkedIn}`}>
+          <Icon>
+            <Linkedin size={20} />
+          </Icon>
+        </a>
+        <a href={`${member.github}`}>
+          <Icon>
+            <GitHub size={20} />
+          </Icon>
+        </a>
         <Icon>
-          <Linkedin size={20} />
+          <Globe size={20} />
         </Icon>
-        <Icon>
-          <Mail size={20} />
-        </Icon>
+        <a href={`${member.email}`}>
+          <Icon>
+            <Mail size={20} />
+          </Icon>
+        </a>
       </Bar>
     </TeamCard>
   );
