@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <HeroWrapper>
       <HeroContent>
-        A portable, open-source BaaS for fast moving Node.js engineers.
+        A portable, open-source BaaS for fast-moving Node.js developers.
       </HeroContent>
       <Actions>
         <Button as={Link} to="/case-study/#introduction">

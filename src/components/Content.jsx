@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-
-
 import RestHttpDiagram from "../assets/case-study/1. rest-http-diagram.svg";
 import staticRoutesCodeSnippet from "../assets/case-study/2. static-routes-code-snippet.png";
 import middlewareAnimation from "../assets/case-study/3. middleware-animation.svg";
@@ -12,7 +10,7 @@ import CaPaaS from "../assets/case-study/7. C-A-PaaS.svg";
 import CaBaaS from "../assets/case-study/8. C-A-BaaS.svg";
 import BaasCompNoPnpd from "../assets/case-study/9. BaaS-Comp-No-Pnpd.png";
 import portability from "../assets/case-study/10. portability.mp4";
-import extensibility from "../assets/case-study/11. extensibility-new.mp4";
+import extensibility from "../assets/case-study/11. extensibility.mp4";
 import userExperience from "../assets/case-study/12. user-experience.mp4";
 import baasCompWithPnpd from "../assets/case-study/13. BaaS-Comp-With-Pnpd.png";
 import CreateTableRequestSequence from "../assets/case-study/14. Create-Table-Request-Sequence.svg";
@@ -20,7 +18,7 @@ import schemaVid from "../assets/case-study/15. schema-vid.mp4";
 import sql from "../assets/case-study/16. sql.svg";
 import tableMigrationSequence from "../assets/case-study/17. table-migration-sequence.svg";
 import migrationFile from "../assets/case-study/18. migration-file.png";
-import dataVid from "../assets/case-study/19. data-vid.mp4";
+import dataVid from "../assets/case-study/19. interacting-with-data.mp4";
 import dynamicRoutes from "../assets/case-study/20. dynamic-routes.png";
 import sdkUsage from "../assets/case-study/21. sdk-usage.png";
 import createTableRequestSequence from "../assets/case-study/22. Create-Table-Request-Sequence.svg";
@@ -37,8 +35,8 @@ import eventExtensibility from "../assets/case-study/32. event-extensibility.png
 import extensibilitySetupSequence from "../assets/case-study/33. extensibility-setup-sequence.svg";
 import extensibilityReqResSequence from "../assets/case-study/34. extensibility-req-res-sequence.svg";
 import pinnipedArchitectureAnimation from "../assets/case-study/35. Pinniped-Architecture-Animation.svg";
-import startupLog from "../assets/case-study/36. Startup-Log.png";
-import ssl from "../assets/case-study/37. ssl.mp4";
+import startupLog from "../assets/case-study/36. startup log.png";
+import ssl from "../assets/case-study/37. SSL_Cert_Flowchart.svg";
 import updatePinniped from "../assets/case-study/38. update-pinniped.mp4";
 
 // const SideBySide = styled.div`
@@ -166,8 +164,6 @@ const Graphic = ({ file, alt, extension }) => {
 };
 
 export default function Content() {
-  
-
   return (
     <ContentsWrapper id="contents-wrapper">
       <>
@@ -757,7 +753,7 @@ export default function Content() {
           These benefits of data integrity make up for the complexities of
           dynamically generating these migration files.
         </p>
-        <Graphic file={migrationFile} extension="svg" />
+        <Graphic file={migrationFile} extension="png" />
         <h3>
           <span id="h.4ijxtcibqs9v">Interacting with Data</span>
         </h3>
@@ -1266,7 +1262,7 @@ export default function Content() {
           the Pinniped application on port 443 (HTTPS) using the new
           certificates while redirecting any port 80 (HTTP) traffic to 443.
         </p>
-        <Graphic file={ssl} extension="mp4" />
+        <Graphic file={ssl} extension="svg" />
         <p>
           Pinniped performs a daily check of the certificate. If it is within 30
           days of expiring, the challenge server will attempt to renew it. If

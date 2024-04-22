@@ -2,22 +2,22 @@
   {
     "header": "Portable",
     "caseStudy": "use-case",
-    "snippet": "Deploy your BaaS anywhere.",
+    "snippet": "Deploy your application anywhere.",
     "icon": "Sliders",
-    "description": "We wanted Pinniped to be as simple as possible to deploy. Because we were targeting small applications, we decided to run Pinniped as a single process with a combined application and data tier . This departs from the typical three-tier architecture and has significant drawbacks when it comes to scalability, as Pinniped cannot scale the server and database separately. We’ll continue exploring this decision's ramifications throughout the case study. The upsides of using a single process are reduced latency and minimal configuration. This allows developers to quickly run a Pinniped application in a local development environment or any production environment with Node.js. "
+    "description": "Pinniped offers flexible deployment: develop locally, customize, configure, and then run on any VPS with Node.js."
   },
   {
     "header": "Extensible",
     "caseStudy": "use-case",
-    "snippet": "Extend your BaaS with Node/Javascript.",
+    "snippet": "Customize your application with Node/Javascript.",
     "icon": "Code",
-    "description": "Pinniped’s business logic and API functionality can be customized with locally executed JavaScript, avoiding the increased network latency and configuration complexity of serverless functions. Pinniped’s extensibility functions run in a Node JS runtime, supporting up-to-date JavaScript ES6 features, the Node API, and npm packages familiar to most Javascript engineers. This implementation also affects Pinniped's scalability, but we’ll defer that discussion until later in the case study."
+    "description": "Pinniped lets developers customize logic and APIs using familiar JavaScript (ES6 features, Node API, npm packages) within its Node.js runtime, avoiding the complexities of serverless functions."
   },
   {
     "header": "Easy to Use",
     "caseStudy": "use-case",
     "snippet": "Manage your schema and data with ease.",
     "icon": "Check",
-    "description": "Simple workflows allow users to create a Pinniped application, deploy it onto a virtual private server (VPS), and manage it through an admin dashboard. "
+    "description": "Pinniped's admin UI simplifies data management with intuitive schema definition and data interaction tools."
   }
 ]
