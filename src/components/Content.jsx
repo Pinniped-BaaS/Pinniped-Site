@@ -728,6 +728,9 @@ export default function Content() {
           server (VPS), and manage it through an admin dashboard.
         </p>
         <Graphic file={userExperience} extension="mp4" />
+        <h5>
+          <span>Where Pinniped Fits In</span>
+        </h5>
         <p>
           <b>Pinniped</b> fits into the BaaS landscape as an option for
           developers who want a BaaS to build small applications in Javascript
