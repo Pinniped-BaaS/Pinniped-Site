@@ -39,27 +39,6 @@ import startupLog from "../assets/case-study/36. startup log.png";
 import ssl from "../assets/case-study/37. SSL_Cert_Flowchart.svg";
 import updatePinniped from "../assets/case-study/38. update-pinniped.mp4";
 
-// const SideBySide = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: start;
-//   gap: 20px;
-
-//   .graphic-wrapper {
-//     flex: 2;
-//   }
-
-//   p {
-//     flex: 1;
-//     text-align: justify;
-//   }
-
-//   @media (max-width: 1000px) {
-//     flex-direction: column;
-//     align-items: center;
-//   }
-// `;
-
 const ContentsWrapper = styled.section`
   grid-area: contents;
   display: flex;
@@ -172,7 +151,9 @@ const SVGWrapper = styled.object`
   max-width: 95%;
 
   border-radius: 15px;
-  padding: 10px;
+
+  padding: ${({ $removePadding }) => ($removePadding ? "0" : "10px")};
+
   border: ${({ $removeBorder }) =>
     $removeBorder ? "none" : "1px solid var(--foreground)"};
   box-shadow: ${({ $removeBorder }) =>
@@ -206,7 +187,7 @@ const Video = ({ src, alt, width }) => {
   );
 };
 
-const Animation = ({ svg, alt, width, removeBorder }) => {
+const Animation = ({ svg, alt, width, removeBorder, removePadding }) => {
   return (
     <GraphicWrapper className="graphic-wrapper">
       <SVGWrapper
@@ -215,12 +196,20 @@ const Animation = ({ svg, alt, width, removeBorder }) => {
         alt={alt}
         $width={width}
         $removeBorder={removeBorder}
+        $removePadding={removePadding}
       />
     </GraphicWrapper>
   );
 };
 
-const Graphic = ({ file, alt, extension, width, removeBorder }) => {
+const Graphic = ({
+  file,
+  alt,
+  extension,
+  width,
+  removeBorder,
+  removePadding,
+}) => {
   switch (extension) {
     case "svg":
       return (
@@ -229,6 +218,7 @@ const Graphic = ({ file, alt, extension, width, removeBorder }) => {
           alt={alt}
           width={width}
           removeBorder={removeBorder}
+          removePadding={removePadding}
         />
       );
     case "mp4":
@@ -386,7 +376,8 @@ export default function Content() {
         <Graphic
           file={middlewareAnimation}
           extension="svg"
-          alt="Middleware Animation"
+          alt="An animation of Middleware"
+          width="80%"
         />
         <h4>
           <span id="h.h03wvg9n2q4q">The Presentation Tier</span>
@@ -406,9 +397,9 @@ export default function Content() {
         <Graphic
           file={threeTierArchitectureAnimation}
           extension="svg"
-          alt="Three Tier Architecture Animation"
-          removeBorder
-          width="80%"
+          alt="An animation of Three Tier Architecture"
+          removePadding={true}
+          width={"calc(80% + 20px)"}
         />
         <h4>
           <span id="h.qaufus87ww">Three-Tier Architecture Challenges</span>
@@ -477,7 +468,7 @@ export default function Content() {
         <Graphic
           file={CaNoTool}
           extension="svg"
-          alt="No tool"
+          alt="No tool slider diagram"
           removeBorder
           width="80%"
         />
@@ -497,7 +488,13 @@ export default function Content() {
           application dependencies, and configuring reverse proxies, firewalls,
           and load balancers.
         </p>
-        <Graphic file={CaIaaS} extension="svg" removeBorder width="80%" />
+        <Graphic
+          file={CaIaaS}
+          extension="svg"
+          alt="Infrastructre as a service slider diagram"
+          removeBorder
+          width="80%"
+        />
         <h5>
           <span id="h.7e489zbi3aib">Platform as a Service - PaaS</span>
         </h5>
@@ -514,7 +511,13 @@ export default function Content() {
           of vendor lock-in. Moving an application away from a PaaS product can
           be challenging.
         </p>
-        <Graphic file={CaPaaS} extension="svg" removeBorder width="80%" />
+        <Graphic
+          file={CaPaaS}
+          extension="svg"
+          alt="Platform as a service slider diagram"
+          removeBorder
+          width="80%"
+        />
         <h5>
           <span id="h.s3kx2ba84bop">Backend as a Service - BaaS</span>
         </h5>
@@ -537,7 +540,13 @@ export default function Content() {
           These features enable developers to focus on their application's
           business logic and functionality.
         </p>
-        <Graphic file={CaBaaS} extension="svg" removeBorder width="80%" />
+        <Graphic
+          file={CaBaaS}
+          extension="svg"
+          alt="Backend as a service slider diagram"
+          removeBorder
+          width="80%"
+        />
         <p>
           The more an application follows norms, such as utilizing a REST API to
           interact with entities stored in a database, the more likely a BaaS
@@ -635,6 +644,7 @@ export default function Content() {
           file={BaasCompNoPnpd}
           extension="png"
           width="80%"
+          alt="Comparison of three BaaS options"
           removeBorder
         />
         <ul>
@@ -671,12 +681,9 @@ export default function Content() {
             </p>
           </li>
         </ul>
-        <h3>
-          <span id="h.9h6mmnnqr80y">Pinniped</span>
-        </h3>
-        <h4>
-          <span id="h.nooivelf1ckz">Use Case</span>
-        </h4>
+        <h2>
+          <span id="h.9h6mmnnqr80y">Pinniped Use Case</span>
+        </h2>
         <p>
           Among the BaaS options, we saw an opportunity to build a BaaS that was{" "}
           <b>easy to self-host</b> and <b>customize with JavaScript</b>, a
@@ -687,9 +694,9 @@ export default function Content() {
           don’t need all the features offered by a larger BaaS. This is
           reflected in the design choices we made for Pinniped:
         </p>
-        <h5>
+        <h3>
           <span id="h.1usi6uxe79bs">Portability</span>
-        </h5>
+        </h3>
         <p>
           We wanted Pinniped to be as simple as possible to deploy. Because we
           were targeting small applications, we decided to run Pinniped as a
@@ -704,9 +711,9 @@ export default function Content() {
           Node.js.
         </p>
         <Graphic file={portability} extension="mp4" />
-        <h5>
+        <h3>
           <span id="h.brftibpbfh8x">Extensibility</span>
-        </h5>
+        </h3>
         <p>
           Pinniped’s business logic and API functionality can be customized with
           locally executed JavaScript, avoiding the increased network latency
@@ -718,9 +725,9 @@ export default function Content() {
           later in the case study.
         </p>
         <Graphic file={extensibility} extension="mp4" />
-        <h5>
+        <h3>
           <span id="h.b54w2gxrrbbx">User Experience</span>
-        </h5>
+        </h3>
         <p>
           We wanted Pinniped to be easy to use, so we made it simple to interact
           with and integrate into any application. Simple workflows allow users
@@ -728,9 +735,9 @@ export default function Content() {
           server (VPS), and manage it through an admin dashboard.
         </p>
         <Graphic file={userExperience} extension="mp4" />
-        <h5>
+        <h3>
           <span>Where Pinniped Fits In</span>
-        </h5>
+        </h3>
         <p>
           <b>Pinniped</b> fits into the BaaS landscape as an option for
           developers who want a BaaS to build small applications in Javascript
@@ -740,7 +747,12 @@ export default function Content() {
           limited, so it’s unsuited for large-scale or enterprise applications
           that expect to see high traffic.
         </p>
-        <Graphic file={baasCompWithPnpd} extension="png" removeBorder />
+        <Graphic
+          file={baasCompWithPnpd}
+          alt="Comparison of Pinniped and three other BaaS"
+          extension="png"
+          removeBorder
+        />
         <h2>
           <span id="h.ekry0lqxnum2">Pinniped Design</span>
         </h2>
@@ -771,7 +783,7 @@ export default function Content() {
         <Graphic
           file={CreateTableRequestSequence}
           extension="svg"
-          alt="Rest HTTP Diagram"
+          alt="Create Table Request Sequence"
         />
         <h5>
           <span id="h.ys5rvubtk6o6">Admin UI</span>
@@ -843,7 +855,7 @@ export default function Content() {
         <Graphic
           file={tableMigrationSequence}
           extension="svg"
-          alt="Rest HTTP Diagram"
+          alt="Table Migration Sequence Diagram"
         />
         <p>
           Handling schema changes through <b>migration files</b> is more
@@ -854,7 +866,12 @@ export default function Content() {
           These benefits of data integrity make up for the complexities of
           dynamically generating these migration files.
         </p>
-        <Graphic file={migrationFile} extension="png" width="65%" />
+        <Graphic
+          file={migrationFile}
+          alt="Migration file example"
+          extension="png"
+          width="65%"
+        />
         <h3>
           <span id="h.4ijxtcibqs9v">Interacting with Data</span>
         </h3>
@@ -908,7 +925,12 @@ export default function Content() {
             parameters instead of static routes based on the resource.
           </span>
         </p>
-        <Graphic file={dynamicRoutes} extension="png" width="80%" />
+        <Graphic
+          file={dynamicRoutes}
+          alt="Dynamic routes"
+          extension="png"
+          width="80%"
+        />
         <p>
           By taking this approach, Pinniped only needs to register a single set
           of route handler functions to provide a RESTish API layer for an
@@ -925,7 +947,12 @@ export default function Content() {
           their presentation tier, developers can use the simple Javascript SDK
           methods to interact with the backend.
         </p>
-        <Graphic file={sdkUsage} extension="png" width="60%" />
+        <Graphic
+          file={sdkUsage}
+          alt="Example usage of the SDK"
+          extension="png"
+          width="60%"
+        />
         <h4>
           <span id="h.k56bdo322zko">
             The Challenges of Building an Auto-Generated API Layer
@@ -971,7 +998,11 @@ export default function Content() {
           This process ensures incoming data adheres to the expected structure
           for each table.
         </p>
-        <Graphic file={createTableRequestSequence} extension="svg" />
+        <Graphic
+          file={createTableRequestSequence}
+          alt="Create table request sequence diagram"
+          extension="svg"
+        />
         <p>
           The{" "}
           <span style={{ color: "rgb(24, 128, 56)" }}>LoadTableContext</span>{" "}
@@ -983,7 +1014,11 @@ export default function Content() {
           as previously described. This model represents the valid data format
           for the targeted table.
         </p>
-        <Graphic file={loadTableContextSequence} extension="svg" />
+        <Graphic
+          file={loadTableContextSequence}
+          alt="Load table context sequence diagram"
+          extension="svg"
+        />
         <p>
           A separate data validation middleware function intercepts the request
           before it reaches the final route handler. This middleware compares
@@ -998,11 +1033,16 @@ export default function Content() {
           message detailing the constraint violation, allowing the user to
           rectify the issue and resubmit the request.
         </p>
-        <Graphic file={validationSequence} extension="svg" width="70%" />
+        <Graphic
+          file={validationSequence}
+          alt="Validation flow sequence diagram"
+          extension="svg"
+          width="70%"
+        />
         <h3>
           <span id="h.zf1dsyjemv2m">Controlling API Access</span>
         </h3>
-        <Graphic file={apiRules} extension="mp4" />
+        <Graphic file={apiRules} alt="Options for API rules" extension="mp4" />
         <p>
           For security concerns, developers restrict data access for different
           users in their applications. For example, an e-commerce site wouldn’t
@@ -1033,7 +1073,11 @@ export default function Content() {
           it available in memory via the{" "}
           <span style={{ color: "rgb(24, 128, 56)" }}>req.session</span> object.
         </p>
-        <Graphic file={expressSessionSequence} extension="svg" />
+        <Graphic
+          file={expressSessionSequence}
+          extension="svg"
+          alt="A sequence digram showing how express-session works."
+        />
         <h5>
           <span id="h.9lv9hdm4a5">User Roles</span>
         </h5>
@@ -1048,7 +1092,12 @@ export default function Content() {
           indicating successful authentication. When the user logs out, this
           object is removed.
         </p>
-        <Graphic file={loginSessionSequence} extension="svg" width="80%" />
+        <Graphic
+          file={loginSessionSequence}
+          extension="svg"
+          width="80%"
+          alt="A sequence diagram showing the user's information being added to a session upon login."
+        />
         <h5>
           <span id="h.5fjtwzy6hfkf">API Access Rules</span>
         </h5>
@@ -1067,7 +1116,12 @@ export default function Content() {
           <span style={{ color: "rgb(24, 128, 56)" }}>res.locals</span>. This
           context is then available for all remaining middleware to utilize.
         </p>
-        <Graphic file={apiRulesRequest} extension="png" width="65%" />
+        <Graphic
+          file={apiRulesRequest}
+          extension="png"
+          width="65%"
+          alt="An HTTP request to create a table with API rules."
+        />
         <h5>
           <span id="h.7x9l1a6oyyrw">
             AuthCheck - Table Level Authorization Middleware
@@ -1083,7 +1137,12 @@ export default function Content() {
           sends an error response to the client or passes the request along to
           its intended endpoint.
         </p>
-        <Graphic file={authCheckSequence} extension="svg" width="65%" />
+        <Graphic
+          file={authCheckSequence}
+          extension="svg"
+          width="65%"
+          alt="A sequence digram showing the conditional logic that Pinniped follows within it's AuthCheck middleware."
+        />
         <h5>
           <span id="h.3mi426m8cso1">Row Level Authorization </span>
         </h5>
@@ -1100,7 +1159,12 @@ export default function Content() {
           response will be sent to the client, preventing them from performing
           their intended action.
         </p>
-        <Graphic file={rowAuth} extension="png" width="85%" />
+        <Graphic
+          file={rowAuth}
+          extension="png"
+          width="85%"
+          alt="A code snippet showing the conditional logic for row level authorization."
+        />
         <h3>
           <span id="h.ij2f6nu5ut9a">Implementing Extensibility</span>
         </h3>
@@ -1174,7 +1238,12 @@ export default function Content() {
             creation experience.
           </li>
         </ol>
-        <Graphic file={customRoute} extension="png" width="70%" />
+        <Graphic
+          file={customRoute}
+          extension="png"
+          width="70%"
+          alt="A code snippet showing the registration of a custom route within index.js."
+        />
         <ol>
           <li>
             <b>Event Handler Functions:</b> Pinniped leverages Node.js's
@@ -1209,6 +1278,7 @@ export default function Content() {
           file={extensibilitySetupSequence}
           extension="svg"
           width="80%"
+          alt="A sequence diagram showing the setup of the extensibility framework on app start."
         />
         <p>
           <b>Most API operations trigger events</b>, including CRUD operations,
@@ -1225,7 +1295,11 @@ export default function Content() {
           analytics, server-sent events, etc) and let the route handler that
           triggered the event send its default response.
         </p>
-        <Graphic file={extensibilityReqResSequence} extension="svg" />
+        <Graphic
+          file={extensibilityReqResSequence}
+          extension="svg"
+          alt="A sequence diagram showing the flow of event based extensibility within the request response cycle."
+        />
         <h3>
           <span id="h.otvy7jf4weox">Hosting and Deployment</span>
         </h3>
@@ -1270,7 +1344,9 @@ export default function Content() {
         <Graphic
           file={pinnipedArchitectureAnimation}
           extension="svg"
-          removeBorder
+          removePadding={true}
+          width={"calc(80% + 20px)"}
+          alt="Pinniped's architecture resembles two distinct tiers, a combined application and data tier, and a presentation tier."
         />
         <h4>
           <span id="h.x7x4h4gnrmy3">Database Selection</span>
@@ -1341,7 +1417,12 @@ export default function Content() {
           The application serves the Admin UI and API, at the specified domain
           and port.
         </p>
-        <Graphic file={startupLog} extension="png" width="60%" />
+        <Graphic
+          file={startupLog}
+          extension="png"
+          width="60%"
+          alt="The URLs for the API and Admin UI logged to the console upon starting a Pinniped Application"
+        />
         <h4>
           <span id="h.42dn93vu5fwi">HTTPS</span>
         </h4>
@@ -1371,7 +1452,12 @@ export default function Content() {
           the Pinniped application on port 443 (HTTPS) using the new
           certificates while redirecting any port 80 (HTTP) traffic to 443.
         </p>
-        <Graphic file={ssl} extension="svg" />
+        <Graphic
+          file={ssl}
+          extension="svg"
+          width="65%"
+          alt="A flowchart showing the conditional logic that Pinniped follows for aquiring and renewing a SSL certificates."
+        />
         <p>
           Pinniped performs a daily check of the certificate. If it is within 30
           days of expiring, the challenge server will attempt to renew it. If
