@@ -88,11 +88,14 @@ const Actions = styled.div`
 
 const Button = styled.button`
   background: inherit;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
   color: black;
+  font-weight: 300;
+  // font-weight: bold;
   outline: none;
-  border: none;
-  border-bottom: 1px solid var(--foreground);
-  width: 200px;
+  border: 1px solid var(--faint-gray);
+  width: 150px;
 
   padding: 0.5rem 0.75rem;
   margin: 0 auto;
@@ -100,12 +103,22 @@ const Button = styled.button`
   text-align: center;
 
   cursor: pointer;
-  transition: background 0.4s;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  animation: display 0.3s ease;
+  animation-fill-mode: both;
+
+  @keyframes display {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 
   &:hover {
-    background: var(--foreground);
-    color: white;
-    border-radius: 0.25rem;
+    transform: translateY(-5px);
+    color: var(--accent2);
   }
 
   & a {
@@ -127,23 +140,10 @@ const LinkWrapper = styled.div`
   }
 
   &:hover {
-    color: var(--accent3);
+    color: var(--accent2);
     font-weight: bold;
   }
 `;
-// const Seal = styled.img`
-//   --galumph-rate: 5px;
-//   --galumph-distance: 40%;
-//   --distance: 200px;
-//   opacity: 0;
-//   position: absolute;
-//   top: -15px;
-//   left: 3rem;
-//   width: 75px;
-//   height: auto;
-//   transform: scaleX(-1);
-//   background: inherit;
-// `;
 
 const BaasOverview = styled.p`
   width: 70%;
