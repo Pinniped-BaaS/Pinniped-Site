@@ -6,8 +6,8 @@ import { Move, Sliders, Check, ArrowRight } from "react-feather";
 
 import features from "../data/features.json";
 
-import portabilityVideo from "../assets/videos/portability.mp4";
-import extensibilityVideo from "../assets/videos/extensibility.mp4";
+import portabilityVideo from "../assets/case-study/10. portability.mp4";
+import extensibilityVideo from "../assets/case-study/11. extensibility.mp4";
 import easeOfUseVideo from "../assets/videos/ease.mp4";
 
 const chooseIcon = (feature) => {
@@ -77,7 +77,7 @@ export default function Features() {
   return (
     <Wrapper>
       <Header>
-        <h2>Pinniped Key Features</h2>
+        <h2>Key Features</h2>
         <Line />
       </Header>
       <Cards>

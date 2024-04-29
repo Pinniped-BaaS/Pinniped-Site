@@ -66,14 +66,15 @@ const GlobalStyles = createGlobalStyle`
     --accent1: #56e4b7;
     --accent2: #66c4ae;
     --accent3: #75a5a5;
+    --lightGrey: #e5e9ec;
 
     --light-gray: rgba(0, 0, 0, 0.1);
     --faint-gray: rgb(215, 221, 228);
 
     --text-color: rgb(102, 111, 117);
-    
+
     --highlight: hsl(62, 100%, 85%);
-    
+
     --modal-background: rgba(53, 71, 104, 0.28);
 
     --max-width: 1280px;
@@ -88,7 +89,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-family: var(--font-main);
     background-color: var(--background);
-    
+
   }
 `;
 

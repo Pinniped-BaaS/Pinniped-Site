@@ -29,7 +29,7 @@ const teamData = [
     linkedIn: "https://www.linkedin.com/in/joshualakenan/",
     github: "https://github.com/JoshLakenan",
     email: "mailto:joshlakenan@gmail.com",
-    website: "",
+    website: "joshlakenan.com",
     location: "Chicago, IL",
   },
   {
