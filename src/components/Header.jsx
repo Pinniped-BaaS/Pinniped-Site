@@ -5,7 +5,8 @@ import HeaderLogo from "../assets/images/header-logo.png";
 import NavDropdown from "./NavDropdown.jsx";
 import Links from "./Links.jsx";
 
-import { Link } from "wouter";
+// import { Link } from "wouter";
+import { Link, Outlet } from "react-router-dom";
 
 export default function Header() {
   return (

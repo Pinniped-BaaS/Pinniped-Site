@@ -1,25 +1,55 @@
 import { useEffect } from "react";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import styled from "styled-components";
 import GlobalStyles from "./assets/styles/global.js";
 
 import Header from "./components/Header.jsx";
-
 import Home from "./components/pages/Home.jsx";
 import CaseStudy from "./components/pages/CaseStudy.jsx";
 import Team from "./components/pages/Team.jsx";
 import Footer from "./components/Footer.jsx";
 
-import { Router, Route, Switch, useLocation } from "wouter";
+import { link, Outlet, useLocation } from "react-router-dom";
 
 import ErrorBoundary from "./components/ErrorBoundary.jsx";
 
-function App() {
-  const [pathname] = useLocation();
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/case-study",
+        element: <CaseStudy />,
+      },
+      {
+        path: "/team",
+        element: <Team />,
+      },
+      {
+        path: "/*",
+        element: (
+          <div>
+            There is no content located at this page. Please return to the home
+            page via the logo in the header above.
+          </div>
+        ),
+      },
+    ],
+  },
+]);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+function App() {
+  // const [pathname] = useLocation();
+
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, [pathname]);
 
   return (
     <>
@@ -27,25 +57,7 @@ function App() {
         <Wrapper>
           <Header />
           <ContentWrapper>
-            <Router>
-              <Switch>
-                <Route path="/">
-                  <Home />
-                </Route>
-                <Route path="/case-study">
-                  <CaseStudy />
-                </Route>
-                <Route path="/team">
-                  <Team />
-                </Route>
-                <Route path="/*">
-                  <div>
-                    There is no content located at this page. Please return to
-                    the home page via the logo in the header above.
-                  </div>
-                </Route>
-              </Switch>
-            </Router>
+            <RouterProvider router={router} />
           </ContentWrapper>
           <Footer />
           <GlobalStyles />

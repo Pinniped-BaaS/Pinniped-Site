@@ -1,7 +1,8 @@
 import { useState } from "react";
 
 import styled, { keyframes } from "styled-components";
-import { useLocation } from "wouter";
+// import { useLocation } from "wouter";
+import { useLocation } from "react-router-dom";
 import { Move, Sliders, Check, ArrowRight } from "react-feather";
 
 import features from "../data/features.json";
