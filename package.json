@@ -1,5 +1,5 @@
 {
-  "name": "pinniped-site",
+  "name": "pinniped-baas.github.io",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -30,5 +30,5 @@
     "gh-pages": "^6.1.1",
     "vite": "^5.2.0"
   },
-  "homepage": "https://pinniped-baas.github.io/Pinniped-Site/"
+  "homepage": "https://pinniped-baas.github.io/"
 }
