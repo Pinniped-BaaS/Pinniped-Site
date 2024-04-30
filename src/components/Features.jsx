@@ -117,7 +117,7 @@ export default function Features() {
 const Wrapper = styled.section`
   grid-area: features;
 
-  min-height: 1000px;
+  min-height: 675px;
 `;
 
 const Header = styled.header`
