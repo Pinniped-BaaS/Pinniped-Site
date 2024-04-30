@@ -30,6 +30,7 @@ export default function Links({ setOpen }) {
       <LinkWrapper>
         <a
           href="https://github.com/Pinniped-BaaS"
+          target="_blank"
           onClick={() => {
             if (setOpen && typeof setOpen === "function") {
               setOpen(false);

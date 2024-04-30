@@ -8,7 +8,7 @@ import features from "../data/features.json";
 
 import portabilityVideo from "../assets/case-study/10. portability.mp4";
 import extensibilityVideo from "../assets/case-study/11. extensibility.mp4";
-import easeOfUseVideo from "../assets/videos/ease.mp4";
+import easeOfUseVideo from "../assets/case-study/12. user-experience.mp4";
 
 const chooseIcon = (feature) => {
   switch (feature.header) {
@@ -219,7 +219,7 @@ const showFeature = keyframes`
 const FeatureWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 120px;
+  gap: 50px;
   margin-top: 80px;
 
   animation: ${showFeature} 1s ease-in-out;

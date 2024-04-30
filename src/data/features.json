@@ -1,21 +1,21 @@
 [
   {
     "header": "Portable",
-    "caseStudy": "use-case",
+    "caseStudy": "Pinniped-Use-Case",
     "snippet": "Deploy your application anywhere.",
     "icon": "Sliders",
     "description": "Pinniped offers flexible deployment: develop locally, customize, configure, and then run on any VPS with Node.js."
   },
   {
     "header": "Extensible",
-    "caseStudy": "use-case",
-    "snippet": "Customize your application with Node/Javascript.",
+    "caseStudy": "Pinniped-Use-Case",
+    "snippet": "Customize your application with JavaScript/Node.js",
     "icon": "Code",
     "description": "Pinniped lets developers customize logic and APIs using familiar JavaScript (ES6 features, Node API, npm packages) within its Node.js runtime, avoiding the complexities of serverless functions."
   },
   {
     "header": "Easy to Use",
-    "caseStudy": "use-case",
+    "caseStudy": "Pinniped-Use-Case",
     "snippet": "Manage your schema and data with ease.",
     "icon": "Check",
     "description": "Pinniped's admin UI simplifies data management with intuitive schema definition and data interaction tools."

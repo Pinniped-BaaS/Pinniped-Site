@@ -13,15 +13,15 @@ const teamData = [
     linkedIn: "https://www.linkedin.com/in/alan-b-cho/",
     github: "https://github.com/alan-cho",
     email: "mailto:alancho397@gmail.com",
-    website: "",
+    website: "https://www.linkedin.com/in/alan-b-cho/",
     location: "Dallas, TX",
   },
   {
     name: "Jonathan",
     linkedIn: "https://www.linkedin.com/in/jonathan-hurd-006b4414/",
-    github: "https://github.com/Jondruh",
+    github: "https://github.com/jonathan-hurd",
     email: "mailto:hurd.jonathan@gmail.com",
-    website: "",
+    website: "https://www.jonathanhurd.net",
     location: "Eau Claire, WI",
   },
   {
@@ -29,7 +29,7 @@ const teamData = [
     linkedIn: "https://www.linkedin.com/in/joshualakenan/",
     github: "https://github.com/JoshLakenan",
     email: "mailto:joshlakenan@gmail.com",
-    website: "joshlakenan.com",
+    website: "https://joshlakenan.com",
     location: "Chicago, IL",
   },
   {
@@ -37,7 +37,7 @@ const teamData = [
     linkedIn: "https://www.linkedin.com/in/trevorr-j/",
     github: "https://github.com/trees543",
     email: "mailto:treesjones3@gmail.com",
-    website: "",
+    website: "https://www.linkedin.com/in/trevorr-j/",
     location: "Dallas, TX",
   },
 ];
@@ -64,20 +64,22 @@ const Member = ({ member }) => {
       <Name>{member.name}</Name>
       {member.location}
       <Bar>
-        <a href={`${member.linkedIn}`}>
+        <a href={`${member.linkedIn}`} target="_blank">
           <Icon>
             <Linkedin size={20} />
           </Icon>
         </a>
-        <a href={`${member.github}`}>
+        <a href={`${member.github}`} target="_blank">
           <Icon>
             <GitHub size={20} />
           </Icon>
         </a>
-        <Icon>
-          <Globe size={20} />
-        </Icon>
-        <a href={`${member.email}`}>
+        <a href={`${member.website}`} target="_blank">
+          <Icon>
+            <Globe size={20} />
+          </Icon>
+        </a>
+        <a href={`${member.email}`} target="_blank">
           <Icon>
             <Mail size={20} />
           </Icon>
@@ -90,6 +92,8 @@ const Member = ({ member }) => {
 export default function Team() {
   return (
     <TeamWrapper>
+      <h1>Meet the Team</h1>
+      {/* <Line></Line> */}
       <TeamCards>
         {teamData.map((member, index) => (
           <Member member={member} key={index} />
@@ -101,6 +105,12 @@ export default function Team() {
 
 const TeamWrapper = styled.section`
   height: 100%;
+
+  h1 {
+    font-size: 2rem;
+    margin: 2rem;
+    text-align: center;
+  }
 `;
 
 const TeamCards = styled.div`
@@ -141,7 +151,7 @@ const Photo = styled.img`
 `;
 
 const Name = styled.h2`
-  font-size: 1.1rem;
+  font-size: 1.5rem;
 `;
 
 const Bar = styled.div`
