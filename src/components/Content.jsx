@@ -878,7 +878,7 @@ export default function Content() {
           file={migrationFile}
           alt="Migration file example"
           extension="png"
-          width="65%"
+          width="60%"
         />
         <h3>
           <span id="h.4ijxtcibqs9v">Interacting with Data</span>
