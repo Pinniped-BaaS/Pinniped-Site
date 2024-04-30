@@ -267,12 +267,20 @@ export default function Content() {
         </h3>
         <p>
           Web applications are commonly built by separating their functionality
-          into three tiers. This separation isolates different responsibilities
-          of the application and is often reflected in the physical
-          configuration of the hardware as well. Isolating the responsibilities
-          of each tier makes each easier to develop, maintain, and scale. The
-          three tiers are:
+          into three tiers. These tiers are the Data Tier, the Application Tier,
+          and the Presentation Tier. This separation isolates different
+          responsibilities of the application and is often reflected in the
+          physical configuration of the hardware as well. Isolating the
+          responsibilities of each tier makes each easier to develop, maintain,
+          and scale.
         </p>
+        <Graphic
+          file={threeTierArchitectureAnimation}
+          extension="svg"
+          alt="An animation of Three Tier Architecture"
+          removePadding={true}
+          width={"calc(80% + 20px)"}
+        />
         <h4>
           <span id="h.p60wvo2lgzpp">The Data Tier</span>
         </h4>
@@ -394,13 +402,13 @@ export default function Content() {
           and the application tier. The presentation tier usually runs on users’
           devices.
         </p>
-        <Graphic
+        {/* <Graphic
           file={threeTierArchitectureAnimation}
           extension="svg"
           alt="An animation of Three Tier Architecture"
           removePadding={true}
           width={"calc(80% + 20px)"}
-        />
+        /> */}
         <h4>
           <span id="h.qaufus87ww">Three-Tier Architecture Challenges</span>
         </h4>

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import styled, { keyframes } from "styled-components";
 
-import demoStatic from "../assets/images/demo.png";
+import demoStatic from "../assets/images/Demo-Cover.png";
 
 import demo from "../assets/videos/pinniped_demo.mp4";
 
