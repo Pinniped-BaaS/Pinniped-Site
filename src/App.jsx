@@ -10,16 +10,17 @@ import CaseStudy from "./components/pages/CaseStudy.jsx";
 import Team from "./components/pages/Team.jsx";
 import Footer from "./components/Footer.jsx";
 
-import { Router, Route, Switch, useLocation } from "wouter";
+// import { Router, Route, Switch, useLocation } from "wouter";
+import { HashRouter, Routes, Route, useLocation } from "react-router-dom";
 
 import ErrorBoundary from "./components/ErrorBoundary.jsx";
 
 function App() {
-  const [pathname] = useLocation();
+  const { pathname, hash } = useLocation();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, [pathname]);
 
   return (
     <>
@@ -27,25 +28,22 @@ function App() {
         <Wrapper>
           <Header />
           <ContentWrapper>
-            <Router>
-              <Switch>
-                <Route path="/">
-                  <Home />
-                </Route>
-                <Route path="/case-study">
-                  <CaseStudy />
-                </Route>
-                <Route path="/team">
-                  <Team />
-                </Route>
-                <Route path="/*">
+            <HashRouter>
+              {/* <Routes> */}
+              <Route path="/" element={<Home />} />
+              <Route path="/case-study" element={<CaseStudy />} />
+              <Route path="/team" element={<Team />} />
+              <Route
+                path="/*"
+                element={
                   <div>
                     There is no content located at this page. Please return to
                     the home page via the logo in the header above.
                   </div>
-                </Route>
-              </Switch>
-            </Router>
+                }
+              />
+              {/* </Routes> */}
+            </HashRouter>
           </ContentWrapper>
           <Footer />
           <GlobalStyles />
