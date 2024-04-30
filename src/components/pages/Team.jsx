@@ -29,7 +29,7 @@ const teamData = [
     linkedIn: "https://www.linkedin.com/in/joshualakenan/",
     github: "https://github.com/JoshLakenan",
     email: "mailto:joshlakenan@gmail.com",
-    website: "joshlakenan.com",
+    website: "https://joshlakenan.com",
     location: "Chicago, IL",
   },
   {
@@ -74,9 +74,11 @@ const Member = ({ member }) => {
             <GitHub size={20} />
           </Icon>
         </a>
-        <Icon>
-          <Globe size={20} />
-        </Icon>
+        <a href={`${member.website}`}>
+          <Icon>
+            <Globe size={20} />
+          </Icon>
+        </a>
         <a href={`${member.email}`}>
           <Icon>
             <Mail size={20} />
@@ -90,6 +92,7 @@ const Member = ({ member }) => {
 export default function Team() {
   return (
     <TeamWrapper>
+      <h2>Meet the Team</h2>
       <TeamCards>
         {teamData.map((member, index) => (
           <Member member={member} key={index} />
@@ -101,6 +104,11 @@ export default function Team() {
 
 const TeamWrapper = styled.section`
   height: 100%;
+
+  h2 {
+    font-size: 2rem;
+    margin: 2rem;
+  }
 `;
 
 const TeamCards = styled.div`
