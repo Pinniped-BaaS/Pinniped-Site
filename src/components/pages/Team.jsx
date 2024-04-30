@@ -13,7 +13,7 @@ const teamData = [
     linkedIn: "https://www.linkedin.com/in/alan-b-cho/",
     github: "https://github.com/alan-cho",
     email: "mailto:alancho397@gmail.com",
-    website: "https://www.linkedin.com/in/alan-b-cho/",
+    website: "https://alan-cho.com",
     location: "Dallas, TX",
   },
   {
