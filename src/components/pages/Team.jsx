@@ -21,7 +21,7 @@ const teamData = [
     linkedIn: "https://www.linkedin.com/in/jonathan-hurd-006b4414/",
     github: "https://github.com/Jondruh",
     email: "mailto:hurd.jonathan@gmail.com",
-    website: "",
+    website: "https://www.jonathanhurd.net",
     location: "Eau Claire, WI",
   },
   {
@@ -64,22 +64,22 @@ const Member = ({ member }) => {
       <Name>{member.name}</Name>
       {member.location}
       <Bar>
-        <a href={`${member.linkedIn}`}>
+        <a href={`${member.linkedIn}`} target="_blank">
           <Icon>
             <Linkedin size={20} />
           </Icon>
         </a>
-        <a href={`${member.github}`}>
+        <a href={`${member.github}`} target="_blank">
           <Icon>
             <GitHub size={20} />
           </Icon>
         </a>
-        <a href={`${member.website}`}>
+        <a href={`${member.website}`} target="_blank">
           <Icon>
             <Globe size={20} />
           </Icon>
         </a>
-        <a href={`${member.email}`}>
+        <a href={`${member.email}`} target="_blank">
           <Icon>
             <Mail size={20} />
           </Icon>
