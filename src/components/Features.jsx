@@ -219,7 +219,7 @@ const showFeature = keyframes`
 const FeatureWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 120px;
+  gap: 50px;
   margin-top: 80px;
 
   animation: ${showFeature} 1s ease-in-out;
